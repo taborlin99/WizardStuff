@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://sj0qfy6lnd65"]
+
+[ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="1_vj2ka"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vj2ka")]
+visibility_layer = 3
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(7, 7)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+offset_left = -19.0
+offset_top = -23.0
+offset_right = 21.0
+offset_bottom = 17.0

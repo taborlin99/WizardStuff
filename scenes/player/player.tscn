@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0hw3mqvrs8pi"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
+[ext_resource type="Texture2D" uid="uid://c6yiyiohtfqtm" path="res://assets/red_wizard.png" id="1_mwjcq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
+radius = 6.08276
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_gq8pa")
+max_speed = 100.0
+acceleration = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4o18s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mwjcq")
+region_enabled = true
+region_rect = Rect2(5, 2, 6, 13)

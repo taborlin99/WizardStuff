@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgp5hbrdt5r4"]
+
+[ext_resource type="Script" path="res://scenes/spells/bolt/bolt.gd" id="1_cro2u"]
+[ext_resource type="Texture2D" uid="uid://b3yukbc28txuk" path="res://assets/spells/LightEffect_01.png" id="2_ud15m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmkug"]
+
+[node name="Bolt" type="CharacterBody2D"]
+script = ExtResource("1_cro2u")
+initial_speed = 20.0
+max_speed = 400.0
+acceleration = 5.0
+lifetime = 2.0
+cooldown = null
+mana_cost = null
+size = null
+damage = null
+bounces = null
+peircing = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 9.53674e-07)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_ud15m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wmkug")
