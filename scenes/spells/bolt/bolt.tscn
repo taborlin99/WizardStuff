@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://kgp5hbrdt5r4"]
+[gd_scene load_steps=8 format=3 uid="uid://kgp5hbrdt5r4"]
 
 [ext_resource type="Script" path="res://scenes/spells/bolt/bolt.gd" id="1_cro2u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmkug"]
-radius = 5.09902
+radius = 2.0
 
 [sub_resource type="Gradient" id="Gradient_fpp7e"]
 offsets = PackedFloat32Array(0, 0.893333)
@@ -23,15 +23,19 @@ fill = 1
 fill_from = Vector2(0.480122, 0.547401)
 fill_to = Vector2(0.220183, 0.195719)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjoq0"]
+radius = 7.31707
+
 [node name="Bolt" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_cro2u")
 initial_speed = 200.0
 max_speed = 160.0
 acceleration = 5.0
 lifetime = 0.4
+damage = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wmkug")
@@ -75,3 +79,14 @@ color = Color(0.941176, 0.878431, 0.6, 1)
 energy = 0.89
 texture = SubResource("GradientTexture2D_hytf8")
 texture_scale = 0.5
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+scale = Vector2(0.41, 0.41)
+shape = SubResource("CircleShape2D_fjoq0")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
