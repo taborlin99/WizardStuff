@@ -13,7 +13,7 @@ func _process(delta):
 	player_movement()
 
 func get_spell_array():
-	var spell_array = ["bolt", "bomb", "bolt"] 
+	var spell_array = ["bolt"] 
 	return spell_array
 	
 func cast_spell_chain():

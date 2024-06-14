@@ -6,18 +6,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
 radius = 4.0
 
-[sub_resource type="Gradient" id="Gradient_k4jom"]
+[sub_resource type="Gradient" id="Gradient_go1sf"]
 offsets = PackedFloat32Array(0, 0.393939, 0.891775)
 colors = PackedColorArray(1, 1, 1, 1, 0.320388, 0.320388, 0.320388, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ij8p6"]
-gradient = SubResource("Gradient_k4jom")
+gradient = SubResource("Gradient_go1sf")
 fill = 1
 fill_from = Vector2(0.480122, 0.547401)
 fill_to = Vector2(0.220183, 0.195719)
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_gq8pa")
 max_speed = 60.0

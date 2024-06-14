@@ -14,4 +14,7 @@ func pathfind():
 	
 func _on_timer_timeout():
 	pathfind()
-	print("is pathfinding")
+
+func spell_hit(damage):
+	modify_health(-damage)
+	print(self.name," health: ",current_health)

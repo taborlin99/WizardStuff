@@ -38,6 +38,7 @@ func modify_health(amount):
 	var new_health = current_health + amount
 	if new_health < 0:
 		current_health = 0
+		entity_dies()
 	if new_health > max_health:
 		current_health = max_health
 	else: current_health += amount
@@ -50,3 +51,6 @@ func load_spell(spell_array, index):
 	get_node("/root").add_child(scenenode)
 	return scenenode
 
+func entity_dies():
+	print(self.name," died")
+	queue_free()
