@@ -15,6 +15,7 @@ func player_movement():
 func _process(delta):
 	cast_spell_chain()
 	player_movement()
+	shitty_animation_player()
 
 func get_spell_array():
 	var spell_array = ["bolt"] 
@@ -27,9 +28,13 @@ func cast_spell_chain():
 		spell.global_position = self.global_position
 		spell.rotation = get_angle_to(get_global_mouse_position())
 		spell.init()
-		
-enum state
-{
-	STATE_IDLE,
-	STATE_WALKING
-	}
+
+func shitty_animation_player():
+	if Input.is_action_pressed("move_down"):
+		animated_sprite.play("walk_down")
+	if Input.is_action_pressed("move_up"):
+		animated_sprite.play("walk_up")
+	if  Input.is_action_pressed("move_right"):
+		animated_sprite.play("walk_right")
+	if Input.is_action_pressed("move_left"):
+		animated_sprite.play("walk_left")

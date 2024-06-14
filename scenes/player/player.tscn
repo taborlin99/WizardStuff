@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=55 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Texture2D" uid="uid://ckn0eb26q1wqh" path="res://assets/animations/player/wizard_walk_down.png" id="2_4s4l3"]
@@ -337,6 +337,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_teqa3"]
+resource_name = "walk_up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mdncs"]
+_data = {
+"walk_up": SubResource("Animation_teqa3")
+}
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 3
@@ -363,3 +371,6 @@ animation = &"walk_down"
 script = ExtResource("6_xgef0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mdncs")
+}

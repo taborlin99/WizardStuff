@@ -5,6 +5,8 @@ extends State
 var current_state : State
 var states : Dictionary = {}
 
+#This is probably never going to be used, but if I was smarter I would figure this out
+
 func _ready():
 	for child in get_children():
 		if child is State:
