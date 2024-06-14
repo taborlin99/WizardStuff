@@ -6,7 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yv147"]
 
 [node name="Bomb" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(13, 0)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_3i2o3")
 initial_speed = 50.0
 acceleration = 0.5

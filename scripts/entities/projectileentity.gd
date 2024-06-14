@@ -30,7 +30,6 @@ func load_spell(spell_array, index):
 	scenenode.index = index + 1
 	scenenode.spell_array = spell_array
 	get_node("/root").add_child(scenenode)
-	print(index)
 	return scenenode
 	
 	

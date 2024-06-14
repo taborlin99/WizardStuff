@@ -1,20 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=6 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Texture2D" uid="uid://c6yiyiohtfqtm" path="res://assets/red_wizard.png" id="1_mwjcq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
-radius = 6.08276
+radius = 4.0
+
+[sub_resource type="Gradient" id="Gradient_k4jom"]
+offsets = PackedFloat32Array(0, 0.393939, 0.891775)
+colors = PackedColorArray(1, 1, 1, 1, 0.320388, 0.320388, 0.320388, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ij8p6"]
+gradient = SubResource("Gradient_k4jom")
+fill = 1
+fill_from = Vector2(0.480122, 0.547401)
+fill_to = Vector2(0.220183, 0.195719)
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_gq8pa")
-max_speed = 100.0
+max_speed = 60.0
 acceleration = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4o18s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mwjcq")
 region_enabled = true
 region_rect = Rect2(5, 2, 6, 13)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.501961, 0.443137, 0.164706, 1)
+energy = 3.24
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ij8p6")
+texture_scale = 2.0
