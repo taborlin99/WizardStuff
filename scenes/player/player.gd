@@ -4,6 +4,7 @@ extends Entity
 
 func player_movement():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	direction = direction.normalized()
 	velocity = velocity.move_toward(direction * max_speed, acceleration)
 	move_and_slide()
 
