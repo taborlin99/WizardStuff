@@ -6,11 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yv147"]
 
 [node name="Bomb" type="CharacterBody2D"]
-position = Vector2(7, 0)
+position = Vector2(13, 0)
 script = ExtResource("1_3i2o3")
-max_speed = 10.0
-acceleration = 10.0
-lifetime = 5.0
+initial_speed = 50.0
+acceleration = 0.5
+lifetime = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.333333, 0.333333)

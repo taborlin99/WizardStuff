@@ -45,8 +45,9 @@ func modify_health(amount):
 func load_spell(spell_array, index):
 	var scene = load("res://scenes/spells/" + spell_array[index] + "/" + spell_array[index] + ".tscn")
 	var scenenode = scene.instantiate()
-	scenenode.index = index
+	scenenode.index = index + 1 
 	scenenode.spell_array = spell_array
 	get_node("/root").add_child(scenenode)
+	print(index)
 	return scenenode
 
