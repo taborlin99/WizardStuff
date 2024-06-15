@@ -229,7 +229,7 @@ collision_mask = 2
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(7, 7)
+zoom = Vector2(11.175, 11.175)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_71t6b")
