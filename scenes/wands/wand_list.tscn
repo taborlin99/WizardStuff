@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://kofxk8jte6h8"]
+
+[ext_resource type="Script" path="res://Scripts/Wands/wand_list.gd" id="1_tadoq"]
+[ext_resource type="Script" path="res://addons/wandgrid/WandProperties.gd" id="1_ycinn"]
+
+[node name="WandList" type="Node"]
+script = ExtResource("1_tadoq")
+
+[node name="DefaultWand" type="Node" parent="."]
+script = ExtResource("1_ycinn")
+columns = 7
+rows = 7
