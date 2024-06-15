@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cokd5vljxtqmg"]
+
+[ext_resource type="Texture2D" uid="uid://u2thsfem8brg" path="res://Assets/Editor/grid_background.webp" id="1_4ydi0"]
+[ext_resource type="Script" path="res://Scripts/SpellCreator/spell_grid.gd" id="1_gky0p"]
+
+[node name="BackgroundTextureRect" type="TextureRect"]
+texture = ExtResource("1_4ydi0")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+
+[node name="SpellGridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("1_gky0p")

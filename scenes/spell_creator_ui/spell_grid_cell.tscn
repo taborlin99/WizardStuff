@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3bbptjj8lfo"]
+
+[ext_resource type="Script" path="res://scripts/spell_creator/SpellGridCell.gd" id="1_fuxgk"]
+[ext_resource type="Texture2D" uid="uid://cgj2wwuqbflyd" path="res://assets/editor/spell_square_open.webp" id="1_m2n0q"]
+
+[node name="SpellGridCell" type="TextureRect"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_m2n0q")
+stretch_mode = 2
+script = ExtResource("1_fuxgk")

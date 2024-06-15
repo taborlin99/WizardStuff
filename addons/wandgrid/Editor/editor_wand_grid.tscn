@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c72af6vbte45x"]
+
+[ext_resource type="Script" path="res://addons/wandgrid/Editor/EditorWandGrid.gd" id="1_foity"]
+
+[node name="EditorWandGrid" type="GridContainer"]
+offset_left = 222.0
+offset_top = 240.0
+offset_right = 290.0
+offset_bottom = 272.0
+columns = 2
+script = ExtResource("1_foity")
