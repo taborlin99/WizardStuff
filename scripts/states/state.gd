@@ -1,13 +1,21 @@
 extends Node
 class_name State
 
-signal Transitioned
+@export var animation_name: String
+@export var parent: Node2D
 
-func Enter():
+func enter():
+	#parent.animations.play(anmation_name)
 	pass
-func Exit():
+	
+func exit() -> void:
 	pass
-func Update(_delta, float):
-	pass
-func Physics_update(_delta, float):
-	pass
+
+func process_frame(_delta: float) -> State:
+	return null
+
+func process_physics(_delta: float) -> State:
+	return null
+
+func process_input(_event: InputEvent) -> State:
+	return null

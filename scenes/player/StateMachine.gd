@@ -1,40 +1,35 @@
 extends State
 
-@export var initial_state : State
-
+@export var starting_state : State
 var current_state : State
-var states : Dictionary = {}
 
-#This is probably never going to be used, but if I was smarter I would figure this out
-
-func _ready():
+func init(parent: Player) -> void:
 	for child in get_children():
-		if child is State:
-			states[child.name.to_lower()] = child
-			child.Transitioned.connect(on_child_transitioned)
-			
-	if initial_state:
-		initial_state.Enter()
-		current_state = initial_state
-
-func _process(delta):
-	if current_state:
-		current_state.update(delta)
-
-func _physics_process(delta):
-	if current_state:
-		current_state.Physics_update(delta, null)
-
-func on_child_transitioned(state, new_state_name):
-	if state != current_state:
-		return 
+		child.parent = parent
+	change_state(starting_state)
 	
-	var new_state = state.get(new_state_name.to_lower())
-	if !new_state:
-		return
-	
+#change to new state, and call exit logic of old state, and enter logic of new state
+func change_state(new_state: State):
 	if current_state:
 		current_state.exit()
 	
-	new_state.enter()
 	current_state = new_state
+	current_state.enter()
+	print(current_state)
+	
+func process_physics(float):
+	var new_state = current_state.process_physics(float)
+	if new_state:
+		change_state(new_state)
+		
+func process_input(InputEvent):
+	var new_state = current_state.process_input(InputEvent)
+	if new_state:
+		change_state(new_state)
+		
+func process_frame(float):
+	var new_state = current_state.process_frame(float)
+	if new_state:
+		change_state(new_state)
+	
+	
