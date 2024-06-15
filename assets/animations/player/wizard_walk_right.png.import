@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chlwtwpmppqtf"
-path="res://.godot/imported/wizard_tileset.png-04d058ffa8b88b1ac2373b208f14df89.ctex"
+uid="uid://cquxgmv3bl3ih"
+path="res://.godot/imported/wizard_walk_right.png-e21252291d597aea6d2ef7ed4fb301b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard_tileset.png"
-dest_files=["res://.godot/imported/wizard_tileset.png-04d058ffa8b88b1ac2373b208f14df89.ctex"]
+source_file="res://assets/animations/player/wizard_walk_right.png"
+dest_files=["res://.godot/imported/wizard_walk_right.png-e21252291d597aea6d2ef7ed4fb301b0.ctex"]
 
 [params]
 

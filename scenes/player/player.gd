@@ -1,19 +1,25 @@
 extends Entity
+class_name Player
 
-@onready var direction : Vector2 = Vector2.ZERO
+@onready var state_machine = $StateMachine
 
-func player_movement():
-	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	direction = direction.normalized()
-	velocity = velocity.move_toward(direction * max_speed, acceleration)
-	move_and_slide()
+func _ready() -> void:
+	state_machine.init(self)
 
-func _process(delta):
-	cast_spell_chain()
-	player_movement()
+func _unhandled_input(event: InputEvent) -> void:
+	state_machine.process_input(event)
+	if Input.is_action_just_pressed("click"): #this needs to go to state machine later
+		cast_spell_chain()
 
+func _physics_process(delta: float) -> void:
+	state_machine.process_physics(delta)
+
+func _process(delta: float) -> void:
+	state_machine.process_frame(delta)
+	
 func get_spell_array():
-	var spell_array = ["bolt"] 
+	var spell_array = ["bolt","bomb","bolt"] 
+	print(spell_array)
 	return spell_array
 	
 func cast_spell_chain():
