@@ -21,8 +21,8 @@ WandList="*res://scenes/wands/wand_list.tscn"
 
 [display]
 
-window/size/viewport_width=170
-window/size/viewport_height=360
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=2
 window/size/resizable=false
 

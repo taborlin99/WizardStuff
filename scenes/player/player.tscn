@@ -280,9 +280,10 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_ij8p6")
 texture_scale = 2.0
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state", "parent")]
 script = ExtResource("6_xgef0")
 starting_state = NodePath("Idle")
+parent = NodePath("..")
 
 [node name="walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "roll_state", "cast_state", "animation_tree", "animation_player", "parent")]
 script = ExtResource("7_k8lpv")
@@ -300,13 +301,11 @@ roll_state = NodePath("../roll")
 cast_state = NodePath("../cast")
 parent = NodePath("../..")
 
-[node name="roll" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "idle_state", "cast_state", "animation_tree", "animation_player", "parent")]
+[node name="roll" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "animation_tree", "animation_player", "parent")]
 script = ExtResource("6_8ib5o")
 walk_state = NodePath("../walk")
-idle_state = NodePath("../Idle")
-cast_state = NodePath("../cast")
 roll_speed = 100.0
-roll_duration = 0.6
+roll_duration = 0.5
 animation_tree = NodePath("../../AnimationTree")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")

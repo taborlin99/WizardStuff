@@ -5,10 +5,12 @@ extends State
 @export var cast_state: State
 @export var animation_tree : Node
 @export var animation_player : Node
+@onready var animation_state = animation_tree.get("parameters/playback")
+	
 
 func enter():
-	pass
-
+	animation_state.travel("walk")
+		
 func process_input(_event: InputEvent) -> State:
 	if Input.is_action_just_pressed("roll"):
 		return roll_state
