@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 	
 func get_spell_array():
-	var spell_array = ["bolt","bomb","bolt"] 
+	var spell_array = ["helix","helix","helix"] 
 	print(spell_array)
 	return spell_array
 	

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dun3lsmcxl1au"]
+
+[sub_resource type="GDScript" id="GDScript_ex30u"]
+resource_name = "helix"
+script/source = "extends Projectile
+
+
+var time_elapsed: float = 0.0  
+var base_position: Vector2  
+
+func _ready():
+	base_position = position
+
+func _physics_process(delta):
+	track_lifetime(delta)
+	move_and_slide()
+	sin_movement(delta)
+	
+func sin_movement(delta) -> void:
+	var frequency: float = 30
+	var amplitude: float = 1
+	var local_rotation = Vector2.RIGHT.rotated(rotation)
+	var perpendicular = local_rotation.rotated(PI / 2)
+	time_elapsed += delta
+
+	var sin_wave_displacement = amplitude * sin(frequency * time_elapsed)
+	position = position + (sin_wave_displacement * perpendicular)
+	velocity = velocity.move_toward(max_speed * local_rotation, acceleration * delta)
+	
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28off"]
+radius = 3.16228
+
+[node name="helix" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = SubResource("GDScript_ex30u")
+initial_speed = 100.0
+max_speed = 50.0
+acceleration = 1.0
+lifetime = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_28off")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
