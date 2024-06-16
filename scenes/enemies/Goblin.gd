@@ -10,7 +10,7 @@ func _physics_process(_delta: float):
 	move_and_slide()	
 
 func pathfind():
-	nav_agent.target_position = player.global_position
+	nav_agent.target_posidtdion = player.global_position
 	
 func _on_timer_timeout():
 	pathfind()
