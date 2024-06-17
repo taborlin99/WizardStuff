@@ -12,4 +12,3 @@ func _on_hurtbox_body_entered(body):
 		body.spell_hit(damage)
 	self.hide()
 		
-

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://sj0qfy6lnd65"]
+[gd_scene load_steps=12 format=3 uid="uid://sj0qfy6lnd65"]
 
 [ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="1_vj2ka"]
 [ext_resource type="Texture2D" uid="uid://chlwtwpmppqtf" path="res://assets/tiles/wizard_tileset.png" id="2_o7jt2"]
 [ext_resource type="Texture2D" uid="uid://c2aietwkcedc3" path="res://assets/tiles/updated tiles.png" id="2_t02bq"]
+[ext_resource type="Shader" path="res://scenes/main/fog.gdshader" id="3_e6ogv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbkmd"]
 texture = ExtResource("2_o7jt2")
@@ -41,6 +42,31 @@ texture = ExtResource("2_t02bq")
 sources/0 = SubResource("TileSetAtlasSource_vbkmd")
 sources/1 = SubResource("TileSetAtlasSource_ym1mr")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mg8hs"]
+shader = ExtResource("3_e6ogv")
+shader_parameter/base_color = null
+
+[sub_resource type="Gradient" id="Gradient_7fec1"]
+offsets = PackedFloat32Array(0, 0.112554, 0.415584, 0.623377, 1)
+colors = PackedColorArray(0.533333, 0.611765, 0.921569, 0, 0.564706, 0.494118, 0.678431, 0.309804, 0.45098, 0.509804, 0.576471, 0.47451, 0.533333, 0.611765, 0.921569, 0, 0.533333, 0.611765, 0.921569, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osef3"]
+noise_type = 0
+frequency = 0.003
+fractal_octaves = 10
+domain_warp_amplitude = 29.25
+domain_warp_frequency = 1.55
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mhksc"]
+width = 1280
+height = 640
+seamless = true
+seamless_blend_skirt = 0.477
+normalize = false
+color_ramp = SubResource("Gradient_7fec1")
+noise = SubResource("FastNoiseLite_osef3")
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -54,5 +80,22 @@ layer_1/tile_data = PackedInt32Array(-655361, 1, 1, -655362, 131073, 2, -655363,
 
 [node name="player" parent="." instance=ExtResource("1_vj2ka")]
 
+[node name="atmo_shader" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mg8hs")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = SubResource("NoiseTexture2D_mhksc")
+expand_mode = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 4)

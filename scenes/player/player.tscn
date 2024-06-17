@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=34 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Texture2D" uid="uid://ir24xjmheu87" path="res://assets/animations/player/wizard_sheet.png" id="2_hewl8"]
@@ -10,16 +10,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
 radius = 6.0
-
-[sub_resource type="Gradient" id="Gradient_go1sf"]
-offsets = PackedFloat32Array(0.004329, 0.359307, 0.688312)
-colors = PackedColorArray(0.841471, 0.628919, 0.316177, 1, 0.365694, 0.22566, 0.0259949, 0.74902, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ij8p6"]
-gradient = SubResource("Gradient_go1sf")
-fill = 1
-fill_from = Vector2(0.480122, 0.547401)
-fill_to = Vector2(0.0672783, 0.0642202)
 
 [sub_resource type="Animation" id="Animation_5ywan"]
 length = 0.001
@@ -280,14 +270,6 @@ hframes = 48
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_4o18s")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -1)
-color = Color(0.501961, 0.443137, 0.164706, 1)
-energy = 3.24
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_ij8p6")
-texture_scale = 2.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state", "parent")]
 script = ExtResource("6_xgef0")
