@@ -8,9 +8,6 @@ class_name Entity
 @export var max_mana : int
 @export var current_mana : int
 @export var mana_regen : int
-@export var strength : int
-@export var agility : int
-@export var intelligence : int
 @export var max_speed : float 
 @export var current_speed : float
 @export var acceleration : float
