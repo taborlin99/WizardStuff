@@ -25,6 +25,7 @@ fill_from = Vector2(0.569579, 0.404531)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_7rnpn"]
+offsets = PackedFloat32Array(0, 0.462222)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_4k2gy"]
@@ -57,13 +58,15 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource("ShaderMaterial_rmm8h")
-amount = 10
-lifetime = 0.2
+amount = 30
+lifetime = 9.11
+local_coords = true
 texture = SubResource("GradientTexture2D_xw3xj")
 direction = Vector2(-1, 0)
+spread = 49.86
 gravity = Vector2(0, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 10.0
+initial_velocity_min = 0.1
+initial_velocity_max = 6.0
 color_ramp = SubResource("Gradient_7rnpn")
 hue_variation_curve = SubResource("Curve_4k2gy")
 
