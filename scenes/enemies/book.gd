@@ -1,6 +1,6 @@
 extends Entity
 
-@export var player: Node2D
+var player : Node
 @onready var nav_agent = $NavigationAgent2D
 @onready var nav_to_player : Vector2
 @onready var direction_to_player : Vector2 = Vector2.ZERO
@@ -15,6 +15,8 @@ func _ready():
 	animation_state.travel("move")
 	reset_cooldown()
 	reset_path_cooldown()
+	player = get_node(Constants.playerPath)
+	print (Constants.playerPath)
 
 func _physics_process(delta: float):
 	direction_to_player = player.global_position - global_position
