@@ -32,7 +32,6 @@ func load_spell(spell_array, index):
 	get_node("/root").add_child(scenenode)
 	return scenenode
 	
-	
 func cast_spell_chain():
 	if index < spell_array.size():
 		var spell = load_spell(spell_array, index)
@@ -43,6 +42,10 @@ func cast_spell_chain():
 func projectile_expired():
 	cast_spell_chain()
 	queue_free()
+	play_expired()
+
+func play_expired():
+	pass
 
 func track_lifetime(delta):
 	lifetime -= delta

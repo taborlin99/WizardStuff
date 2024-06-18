@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 WandList="*res://scenes/wands/wand_list.tscn"
+BackgroundAudioManager="*res://scripts/audio/background_audio_manager.tscn"
 
 [display]
 
