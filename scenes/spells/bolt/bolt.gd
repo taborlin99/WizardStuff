@@ -11,4 +11,6 @@ func _on_hurtbox_body_entered(body):
 	if body.is_in_group("enemies"):
 		body.spell_hit(damage)
 	self.hide()
-		
+
+func play_expired():
+	$impact.play()

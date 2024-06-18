@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://kgp5hbrdt5r4"]
+[gd_scene load_steps=11 format=3 uid="uid://kgp5hbrdt5r4"]
 
 [ext_resource type="Script" path="res://scenes/spells/bolt/bolt.gd" id="1_cro2u"]
 [ext_resource type="Shader" path="res://scenes/spells/bolt/bolt.gdshader" id="2_xos0o"]
+[ext_resource type="AudioStream" uid="uid://c6vh0gheg4dx8" path="res://assets/sound_fx/blip.wav" id="3_d3rvh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmkug"]
 radius = 2.0
@@ -69,6 +70,9 @@ initial_velocity_min = 0.1
 initial_velocity_max = 6.0
 color_ramp = SubResource("Gradient_7rnpn")
 hue_variation_curve = SubResource("Curve_4k2gy")
+
+[node name="impact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d3rvh")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
