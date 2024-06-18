@@ -29,6 +29,7 @@ scale = Vector2(0.44, 0.44)
 texture = ExtResource("2_4uf7r")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="Timer" type="Timer" parent="NavigationAgent2D"]
 wait_time = 0.5
