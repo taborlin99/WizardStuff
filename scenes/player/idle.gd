@@ -1,6 +1,5 @@
 extends State
 
-@export var parent : CharacterBody2D
 @export var animation : AnimationPlayer
 @export var walk_state : State
 @export var roll_state : State

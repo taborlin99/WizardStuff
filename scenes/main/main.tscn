@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chlwtwpmppqtf" path="res://assets/tiles/wizard_tileset.png" id="2_o7jt2"]
 [ext_resource type="Texture2D" uid="uid://c2aietwkcedc3" path="res://assets/tiles/updated tiles.png" id="2_t02bq"]
 [ext_resource type="Script" path="res://scenes/main/PixelPerfect.gd" id="4_xdddc"]
-[ext_resource type="Texture2D" uid="uid://bttcuowxvbj4m" path="res://assets/icon.svg" id="5_lpn8l"]
+[ext_resource type="PackedScene" uid="uid://daf1tfulcwlv7" path="res://scenes/enemies/book/book.tscn" id="6_vocct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbkmd"]
 texture = ExtResource("2_o7jt2")
@@ -175,8 +175,12 @@ layer_1/tile_data = PackedInt32Array(-655361, 1, 1, -655362, 131073, 2, -655363,
 [node name="player" parent="." instance=ExtResource("1_vj2ka")]
 position = Vector2(160, 96)
 
+[node name="Book" parent="." instance=ExtResource("6_vocct")]
+position = Vector2(128, 112)
+
 [node name="PixelPerfect" type="CanvasLayer" parent="." node_paths=PackedStringArray("camera", "subviewport")]
 layer = 2
+visible = false
 script = ExtResource("4_xdddc")
 camera = NodePath("SubViewport/Camera2D")
 subviewport = NodePath("SubViewport")
@@ -186,17 +190,15 @@ transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(320, 180)
 
-[node name="Icon" type="Sprite2D" parent="PixelPerfect/SubViewport"]
-position = Vector2(240, 112)
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("5_lpn8l")
-
 [node name="Camera2D" type="Camera2D" parent="PixelPerfect/SubViewport"]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="PixelPerfect"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ViewportTexture_mhanb")
+metadata/_edit_use_anchors_ = true

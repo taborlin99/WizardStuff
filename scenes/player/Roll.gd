@@ -1,6 +1,5 @@
 extends State
 
-@export var parent : CharacterBody2D
 @export var animation : AnimationPlayer
 @export var walk_state : State
 @export var idle_state : State
@@ -14,7 +13,6 @@ var roll_complete : bool
 func enter():
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	animate()
-	print("roll entered")
 	roll_complete = false
 	
 func input(_event) -> State:
@@ -40,6 +38,6 @@ func exit():
 	pass
 
 
-func _on_animation_player_animation_finished(animation_name):
+func _on_animation_player_animation_finished(_animation_name):
 	roll_complete = true
-	print("animation finished")
+	

@@ -1,6 +1,6 @@
 extends State
 
-@export var parent : CharacterBody2D
+
 @export var animation : AnimationPlayer
 @export var idle_state : State
 @export var roll_state : State
@@ -20,7 +20,6 @@ func input(_event) -> State:
 		#return cast_state
 		
 	if Input.is_action_just_pressed("roll"):
-		print("roll requested")
 		return roll_state
 
 	if Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO:
