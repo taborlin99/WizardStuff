@@ -1,5 +1,8 @@
 extends Node
 
+@onready var test = $test
+
+var background_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,4 +13,8 @@ func _process(delta):
 	pass
 
 func _on_state_change(new_state):
+	pass
+
+func _play_sfx(sfx):
+	test.play()
 	pass

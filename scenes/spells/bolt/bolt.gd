@@ -1,5 +1,6 @@
 extends Projectile
 
+@onready var impact_node = $impact
 
 func _physics_process(delta):
 	standard_movement()
@@ -13,4 +14,5 @@ func _on_hurtbox_body_entered(body):
 	self.hide()
 
 func play_expired():
-	$impact.play()
+	BackgroundAudioManager._play_sfx("test")
+	print("play sound")

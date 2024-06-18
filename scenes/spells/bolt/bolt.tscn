@@ -71,7 +71,7 @@ initial_velocity_max = 6.0
 color_ramp = SubResource("Gradient_7rnpn")
 hue_variation_curve = SubResource("Curve_4k2gy")
 
-[node name="impact" type="AudioStreamPlayer2D" parent="."]
+[node name="impact" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d3rvh")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
