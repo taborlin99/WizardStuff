@@ -1,14 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=29 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Texture2D" uid="uid://ir24xjmheu87" path="res://assets/animations/player/wizard_sheet.png" id="2_hewl8"]
-[ext_resource type="Script" path="res://scenes/player/FSM.gd" id="3_vt03d"]
-[ext_resource type="Script" path="res://scenes/player/idle.gd" id="4_5o0wn"]
-[ext_resource type="Script" path="res://scenes/player/Walk.gd" id="5_8lmm0"]
-[ext_resource type="Script" path="res://scenes/player/Roll.gd" id="6_tdajf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
-radius = 4.12311
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_5ywan"]
 length = 0.001
@@ -29,6 +25,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_i17fh"]
 resource_name = "roll_down"
 length = 0.6
+loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,6 +43,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_2ttbf"]
 resource_name = "roll_left"
 length = 0.6
+loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -63,6 +61,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_evhov"]
 resource_name = "roll_right"
 length = 0.6
+loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,6 +79,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_wvm61"]
 resource_name = "roll_up"
 length = 0.6
+loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -166,28 +166,9 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_phrcv"]
-resource_name = "idle"
-length = 0.500008
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0ki0"]
 _data = {
 "RESET": SubResource("Animation_5ywan"),
-"idle": SubResource("Animation_phrcv"),
 "roll_down": SubResource("Animation_i17fh"),
 "roll_left": SubResource("Animation_2ttbf"),
 "roll_right": SubResource("Animation_evhov"),
@@ -198,14 +179,82 @@ _data = {
 "walk_up": SubResource("Animation_sboe2")
 }
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animations", "state_machine")]
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_23eu4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ocrxv"]
+animation = &"roll_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v4ydq"]
+animation = &"roll_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8y1io"]
+animation = &"roll_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ps1dt"]
+animation = &"roll_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_0vnna"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ocrxv")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_v4ydq")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_8y1io")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ps1dt")
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdwjw"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gregc"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1j8aj"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdoxn"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1lulg"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_gdwjw")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gregc")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_1j8aj")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_gdoxn")
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xyas"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h8tp8"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tve84"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1nieu"]
+states/End/position = Vector2(880.667, 102.321)
+states/Start/position = Vector2(150.667, 152.436)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_23eu4")
+states/idle/position = Vector2(318, 61.2022)
+states/roll/node = SubResource("AnimationNodeBlendSpace2D_0vnna")
+states/roll/position = Vector2(464.297, 37.3333)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_1lulg")
+states/walk/position = Vector2(357.013, 169.58)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_6xyas"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_h8tp8"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_tve84")]
+
+[node name="player" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 3
-motion_mode = 1
-wall_min_slide_angle = 0.0
 script = ExtResource("1_gq8pa")
-animations = NodePath("AnimationPlayer")
-state_machine = NodePath("FSM")
 max_speed = 60.0
 acceleration = 20.0
 
@@ -214,7 +263,7 @@ texture = ExtResource("2_hewl8")
 hframes = 48
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_4o18s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -222,33 +271,14 @@ libraries = {
 "": SubResource("AnimationLibrary_v0ki0")
 }
 
-[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state", "parent")]
-script = ExtResource("3_vt03d")
-initial_state = NodePath("Idle")
-parent = NodePath("..")
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v0ki0")
+}
+tree_root = SubResource("AnimationNodeStateMachine_1nieu")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/roll/blend_position = Vector2(0.0332906, 0.515929)
+parameters/walk/blend_position = Vector2(0.265045, -0.00973451)
 
-[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("parent", "animation", "walk_state", "roll_state")]
-script = ExtResource("4_5o0wn")
-parent = NodePath("../..")
-animation = NodePath("../../AnimationPlayer")
-walk_state = NodePath("../Walk")
-roll_state = NodePath("../Roll")
-
-[node name="Walk" type="Node" parent="FSM" node_paths=PackedStringArray("parent", "animation", "idle_state", "roll_state")]
-script = ExtResource("5_8lmm0")
-parent = NodePath("../..")
-animation = NodePath("../../AnimationPlayer")
-idle_state = NodePath("../Idle")
-roll_state = NodePath("../Roll")
-max_speed = 50.0
-
-[node name="Roll" type="Node" parent="FSM" node_paths=PackedStringArray("parent", "animation", "walk_state", "idle_state")]
-script = ExtResource("6_tdajf")
-parent = NodePath("../..")
-animation = NodePath("../../AnimationPlayer")
-walk_state = NodePath("../Walk")
-idle_state = NodePath("../Idle")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[connection signal="animation_finished" from="AnimationPlayer" to="FSM/Roll" method="_on_animation_player_animation_finished"]
+[node name="FSM" type="Node" parent="."]

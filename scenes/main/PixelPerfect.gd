@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@export var pp_camera: Camera2D
+@export var camera: Camera2D
+@export var subviewport : SubViewport
 
-func _ready() -> void:
-	#await.get_tree().process_frame
-	pass

@@ -12,12 +12,12 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _on_state_change(new_state):
+func _on_state_change(_new_state):
 	pass
 
-func _play_sfx(sfx):
+func _play_sfx(_sfx):
 	test.play()
 	pass
