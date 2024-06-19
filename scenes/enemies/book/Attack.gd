@@ -4,7 +4,7 @@ extends State
 @export var shoot_state : State
 @export var walk_state : State
 var target_direction : Vector2
-var dash_speed = 60
+var dash_speed = 120
 var attack_finished : bool
 
 func enter():

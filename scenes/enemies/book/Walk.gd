@@ -11,7 +11,6 @@ var time_elapsed : float = 0
 
 func enter():
 	nav_agent.target_position = player.global_position
-	parent.velocity = Vector2.ZERO
 	parent.animation.play("move")
 	time_elapsed = 0
 
