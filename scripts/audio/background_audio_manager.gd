@@ -15,7 +15,12 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_state_change(_new_state):
+func _on_state_change(new_state):
+	print("audio:", new_state)
+	#if(new_state == "walking"):
+		#$player_sounds.play()
+	#else:
+		#$player_sounds.stop()
 	pass
 
 func _play_sfx(_sfx):
