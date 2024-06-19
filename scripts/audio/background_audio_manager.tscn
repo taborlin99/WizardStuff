@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/audio/background_audio_manager.gd" id="1_eyn0p"]
 [ext_resource type="AudioStream" uid="uid://ccwpunj1u6c7t" path="res://assets/music/level1.mp3" id="2_yfbmn"]
-[ext_resource type="AudioStream" uid="uid://c108xo4vl7xsx" path="res://assets/sound_fx/player/footsteps.wav" id="3_4l7vx"]
+[ext_resource type="AudioStream" uid="uid://dg0icmxanm8an" path="res://assets/sound_fx/player/footsteps.ogg" id="3_v5pt7"]
 
 [node name="BackgroundAudioManager" type="Node"]
 script = ExtResource("1_eyn0p")
@@ -10,5 +10,5 @@ script = ExtResource("1_eyn0p")
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_yfbmn")
 
-[node name="player_sounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_4l7vx")
+[node name="player_sounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v5pt7")
