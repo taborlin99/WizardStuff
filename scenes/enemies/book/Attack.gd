@@ -4,27 +4,30 @@ extends State
 @export var shoot_state : State
 @export var walk_state : State
 var target_direction : Vector2
-var dash_speed = 200
-#@onready var player = get_node(Constants.playerPath)
-#@onready var target_position = player.global_position
+var dash_speed = 60
+var attack_finished : bool
 
+func enter():
+	parent.animation.play("shoot_right")
+	target_direction  = Vector2(player.global_position - parent.global_position)
+	parent.velocity = Vector2.ZERO
+	attack_finished = false
 
-
-func _ready():
-	#print("attack",type_string(typeof(player)))
-	#print(player.global_position)
-	#print(parent.global_position)
-	#target_direction  = Vector2(player.global_position - parent.gloabl_position)
-	#print(target_direction)
-	#direction = (player.global_position - parent.global_position)
-	#print("this is the direction", direction)
-	#print("player",player.global_position)
-	#print(parent.global_position)
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func physics_update(delta):
-	print(player.global_position)
+	attack(target_direction, delta)
+	if attack_finished == true:
+		return walk_state
 	
-func attack(direction):
-	parent.velocity = direction * dash_speed
+	
+func attack(direction, delta):
+	parent.velocity = target_direction * dash_speed * delta
+	parent.move_and_slide()
+	
+	var dir = Static.animation_direction(direction)
+	var anim = "shoot" + dir
+	parent.animation.play(anim)
+	
+func _on_animation_player_animation_finished(anim_name):
+	attack_finished = true

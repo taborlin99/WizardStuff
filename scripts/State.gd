@@ -1,10 +1,9 @@
 extends Node
 class_name State
 
-@onready var player : CharacterBody2D = get_node(Constants.playerPath)
-
 var parent : CharacterBody2D
-#@onready var player = get_node(Constants.playerPath)
+@onready var player = get_node("/root/Main/PixelPerfectRendering/SubViewport/Game/player")
+
 
 signal state_transitioned
 

@@ -1,3 +1,3 @@
 extends Node
 
-@export var playerPath = "/root/Main/player"
+@export var playerPath = "/root/Main/PixelPerfectRendering/SubViewport/Game/player"

@@ -118,13 +118,13 @@ _data = {
 "shoot_up": SubResource("Animation_ii6jv")
 }
 
-[node name="Book" type="CharacterBody2D" node_paths=PackedStringArray("animations", "state_machine", "nav_agent")]
+[node name="Book" type="CharacterBody2D" node_paths=PackedStringArray("animation", "state_machine", "nav_agent")]
 collision_layer = 2
 collision_mask = 15
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ydrlh")
-animations = NodePath("AnimationPlayer")
+animation = NodePath("AnimationPlayer")
 state_machine = NodePath("StateMachine")
 nav_agent = NodePath("NavigationAgent2D")
 
@@ -148,8 +148,8 @@ parent = NodePath("..")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("nav_agent", "attack_state", "idle_state", "shoot_state")]
 script = ExtResource("4_on1ck")
-max_speed = 200.0
-acceleration = 100.0
+max_speed = 60.0
+acceleration = 10.0
 nav_agent = NodePath("../../NavigationAgent2D")
 attack_state = NodePath("../Attack")
 idle_state = NodePath("../Idle")
@@ -174,5 +174,9 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+target_desired_distance = 50.0
 path_max_distance = 30.0
 path_postprocessing = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_animation_player_animation_finished"]
