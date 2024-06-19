@@ -17,7 +17,13 @@ func _process(_delta):
 	pass
 
 func _on_state_change(new_state):
-	print("audio:", new_state)
+	print("audio:", new_state.name)
+	
+	match new_state.name:
+		"Walk":
+			$player_sounds.play()
+		"Idle":
+			$player_sounds.stop()
 	#if(new_state == "walking"):
 		#$player_sounds.play()
 	#else:
@@ -27,7 +33,6 @@ func _on_state_change(new_state):
 func _play_sfx(_sfx):
 	test.play()
 	pass
-
 
 func add_player_state_machine(_playerStateMachine):
 	playerStateMachine = _playerStateMachine
