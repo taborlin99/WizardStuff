@@ -16,14 +16,15 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_state_change(new_state):
-	print("audio:", new_state.name)
-	
+func _on_state_change(new_state):	
+	print(new_state.name)
 	match new_state.name:
 		"Walk":
 			$player_sounds.play()
 		"Idle":
 			$player_sounds.stop()
+		"Roll":
+			$player_sounds.get_node("roll").play()
 	#if(new_state == "walking"):
 		#$player_sounds.play()
 	#else:
