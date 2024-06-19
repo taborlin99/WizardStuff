@@ -7,14 +7,15 @@ var direction_to_player : Vector2
 @export var attack_state : State
 @export var idle_state : State
 @export var shoot_state : State
-@onready var player = get_node(Constants.playerPath)
+#@onready var player = get_node(Constants.playerPath)
 
-func ready():
-	nav_agent.target_position = player.global_position
+func _ready():
+	#nav_agent.target_position = player.global_position
+	print(player.global_position)
 #
 func physics_update(delta):
-	if nav_agent.is_navigation_finished():
-		return attack_state
+	#if nav_agent.is_navigation_finished():
+		#return attack_state
 	nav_agent.target_position = player.global_position
 	var nav_direction = nav_agent.get_next_path_position()
 	direction_to_player = Vector2(nav_direction - parent.global_position)

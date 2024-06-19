@@ -7,8 +7,9 @@ var current_state : State
 func _ready():
 	for child in get_children():
 		child.parent = parent
-	change_state(initial_state)
 	
+	change_state(initial_state)
+
 func change_state(new_state : State):
 	if current_state:
 		current_state.exit()
