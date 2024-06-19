@@ -3,6 +3,7 @@ extends Node
 @onready var test = $test
 @onready var bg_music = $bg_music
 
+var playerStateMachine: Node
 
 var background_node
 
@@ -26,3 +27,8 @@ func _on_state_change(new_state):
 func _play_sfx(_sfx):
 	test.play()
 	pass
+
+
+func add_player_state_machine(_playerStateMachine):
+	playerStateMachine = _playerStateMachine
+	playerStateMachine.player_state_signal.connect(_on_state_change)

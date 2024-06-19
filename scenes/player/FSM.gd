@@ -4,13 +4,17 @@ var current_state : State
 @export var initial_state : State
 @export var parent : Node
 
+signal player_state_signal(new_state)
+
 func _ready():
+	BackgroundAudioManager.add_player_state_machine(self)
 	for child in get_children():
 		child.parent = parent
 
 	change_state(initial_state)
 	
 func change_state(new_state : State):
+	player_state_signal.emit(new_state)
 	if current_state:
 		current_state.exit()
 	
