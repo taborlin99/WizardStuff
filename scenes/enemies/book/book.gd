@@ -11,5 +11,3 @@ func _ready():
 
 func _physics_process(delta):
 	state_machine.physics_update(delta)
-
-

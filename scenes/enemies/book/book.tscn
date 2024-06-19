@@ -149,7 +149,7 @@ parent = NodePath("..")
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("nav_agent", "attack_state", "idle_state", "shoot_state")]
 script = ExtResource("4_on1ck")
 max_speed = 60.0
-acceleration = 60.0
+acceleration = 100.0
 nav_agent = NodePath("../../NavigationAgent2D")
 attack_state = NodePath("../Attack")
 idle_state = NodePath("../Idle")

@@ -1,3 +1,10 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://ddtpvuwesg54v"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://ddtpvuwesg54v"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_tvatq"]
+resource_name = "Reverb"
+hipass = 0.36
+wet = 0.4
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_tvatq")
+bus/0/effect/0/enabled = false
