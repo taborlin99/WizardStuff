@@ -33,6 +33,10 @@ window/size/resizable=false
 
 enabled=PackedStringArray("res://addons/wandgrid/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_up={
