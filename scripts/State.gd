@@ -4,7 +4,6 @@ class_name State
 var parent : CharacterBody2D
 @onready var player = get_node("/root/Main/PixelPerfectRendering/SubViewport/Game/player")
 
-
 signal state_transitioned
 
 func enter():

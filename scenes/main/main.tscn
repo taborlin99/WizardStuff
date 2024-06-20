@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cijg58pfa3qqn"]
+[gd_scene load_steps=8 format=3 uid="uid://cijg58pfa3qqn"]
 
 [ext_resource type="PackedScene" uid="uid://sj0qfy6lnd65" path="res://scenes/main/Game.tscn" id="1_31wh8"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_y8atr"]
 [ext_resource type="Script" path="res://scenes/main/PixelPerfectRendering.gd" id="2_gxy38"]
 [ext_resource type="Script" path="res://scenes/main/SubViewportSprite.gd" id="2_ivhx3"]
+[ext_resource type="Texture2D" uid="uid://cxdotrna63w67" path="res://assets/inventory_ui.png" id="5_hkkhj"]
+[ext_resource type="Texture2D" uid="uid://d18totky8nodb" path="res://assets/slot_ui.png" id="6_n6qvr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_x0t52"]
 viewport_path = NodePath("PixelPerfectRendering/SubViewport")
@@ -23,8 +25,43 @@ render_target_update_mode = 4
 
 [node name="Game" parent="PixelPerfectRendering/SubViewport" instance=ExtResource("1_31wh8")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PixelPerfectRendering/SubViewport"]
+
 [node name="SubViewportSprite" type="Sprite2D" parent="PixelPerfectRendering"]
 position = Vector2(960, 540)
 scale = Vector2(6, 6)
 texture = SubResource("ViewportTexture_x0t52")
 script = ExtResource("2_ivhx3")
+
+[node name="GUI" type="Node2D" parent="."]
+visible = false
+
+[node name="InventoryUi" type="Sprite2D" parent="GUI"]
+position = Vector2(952, 168)
+scale = Vector2(6, 6)
+texture = ExtResource("5_hkkhj")
+
+[node name="SlotUi2" type="Sprite2D" parent="GUI"]
+position = Vector2(320, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("6_n6qvr")
+
+[node name="SlotUi" type="Sprite2D" parent="GUI"]
+position = Vector2(2240, 4480)
+scale = Vector2(36, 36)
+texture = ExtResource("6_n6qvr")
+
+[node name="SlotUi3" type="Sprite2D" parent="GUI"]
+position = Vector2(896, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("6_n6qvr")
+
+[node name="SlotUi4" type="Sprite2D" parent="GUI"]
+position = Vector2(704, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("6_n6qvr")
+
+[node name="SlotUi5" type="Sprite2D" parent="GUI"]
+position = Vector2(512, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("6_n6qvr")

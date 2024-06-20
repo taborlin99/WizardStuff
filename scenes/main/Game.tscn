@@ -1,11 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://sj0qfy6lnd65"]
+[gd_scene load_steps=33 format=3 uid="uid://sj0qfy6lnd65"]
 
 [ext_resource type="Texture2D" uid="uid://chlwtwpmppqtf" path="res://assets/tiles/wizard_tileset.png" id="1_7g4sg"]
 [ext_resource type="Texture2D" uid="uid://c2aietwkcedc3" path="res://assets/tiles/updated tiles.png" id="2_0ogwk"]
 [ext_resource type="Script" path="res://scenes/main/Camera2D.gd" id="3_sqrkj"]
 [ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="4_5gwe0"]
+[ext_resource type="Shader" path="res://shaders/testfont.gdshader" id="4_wcmb0"]
 [ext_resource type="PackedScene" uid="uid://daf1tfulcwlv7" path="res://scenes/enemies/book/book.tscn" id="5_pq1g4"]
 [ext_resource type="Texture2D" uid="uid://bttcuowxvbj4m" path="res://assets/icon.svg" id="5_yn7p8"]
+[ext_resource type="FontFile" uid="uid://be7x3j5rescy0" path="res://assets/Fonts/Px437_Acer_VGA_8x8.ttf" id="7_cty6h"]
+[ext_resource type="Script" path="res://scenes/main/TextEdit.gd" id="7_o31bt"]
 
 [sub_resource type="Gradient" id="Gradient_04pah"]
 
@@ -144,6 +147,32 @@ physics_layer_0/collision_mask = 0
 navigation_layer_0/layers = 0
 sources/0 = SubResource("TileSetAtlasSource_ckbhh")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pnkkf"]
+resource_local_to_scene = true
+noise_type = 0
+seed = 895
+frequency = 0.0147
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n5fpi"]
+seamless = true
+seamless_blend_skirt = 0.0
+noise = SubResource("FastNoiseLite_pnkkf")
+
+[sub_resource type="Gradient" id="Gradient_wcmwr"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.34026, 0.464935, 0.587013)
+colors = PackedColorArray(0.886275, 0, 0, 1, 0.913725, 0.501961, 0.239216, 1, 0.913725, 0.705882, 0.239216, 1, 0.77, 0.64064, 0.2849, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rxj2u"]
+gradient = SubResource("Gradient_wcmwr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynr8j"]
+shader = ExtResource("4_wcmb0")
+shader_parameter/scroll = Vector2(0.1, 0.1)
+shader_parameter/NOISE_PATTERN = SubResource("NoiseTexture2D_n5fpi")
+shader_parameter/TONE_MAPPING = SubResource("GradientTexture1D_rxj2u")
+
 [sub_resource type="Gradient" id="Gradient_wqf42"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.28, 0.833333)
@@ -181,6 +210,24 @@ layer_0/tile_data = PackedInt32Array(-196612, 0, 0, -131076, 0, 0, -65540, 0, 0,
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(-262148, 131072, 2, -262147, 0, 1, -262146, 0, 1, -262145, 0, 1, -327680, 0, 1, -327679, 0, 1, -327678, 131072, 2, -327677, 0, 1, -327676, 0, 1, -327675, 0, 1, -327674, 0, 1, -327673, 0, 1, -327672, 0, 1, -327671, 0, 1, -327670, 0, 1, -327669, 131072, 2, -327668, 0, 1, -327667, 0, 1, -327666, 0, 1, -327665, 0, 1, -327664, 0, 1, -327663, 0, 1, -327662, 0, 1, -327661, 0, 1, -327660, 0, 1, -327659, 0, 1, -327658, 131072, 2, -327657, 0, 1, -327656, 0, 1, -327655, 0, 1, -327654, 0, 1, -327653, 0, 1, -327652, 0, 1, -327651, 0, 1, -327650, 0, 1, -327649, 131072, 2, -196612, 0, 2, -131076, 0, 2, -65540, 0, 2, -4, 0, 2, 65532, 0, 2, 131068, 0, 2, 196604, 0, 2, 262140, 131072, 2, 327676, 0, 2, 393212, 0, 2, 458748, 0, 2, 524284, 0, 2, 589820, 0, 2, 655356, 0, 2, 720892, 0, 2, 786428, 0, 1, 851964, 0, 2, 917500, 0, 2, 983036, 0, 2, 1048572, 0, 2, 1114108, 0, 2, 1179644, 0, 2, 1245180, 0, 2, 1310716, 0, 1, 1310717, 0, 1, 1310718, 0, 1, 1310719, 0, 1, 1245184, 0, 1, 1245185, 0, 1, 1245186, 0, 1, 1245187, 0, 1, 1245188, 0, 1, 1245189, 0, 1, 1245190, 0, 1, 1245191, 0, 1, 1245192, 0, 1, 1245193, 0, 1, 1245194, 0, 1, 1245195, 0, 1, 1245196, 0, 1, 1245197, 0, 1, 1245198, 0, 1, 1245199, 0, 1, 1245200, 0, 1, 1245201, 0, 1, 1245202, 0, 1, 1245203, 0, 1, 1245204, 0, 1, 1245205, 0, 1, 1245206, 0, 1, 1245207, 0, 1, 1245208, 0, 1, 1245209, 0, 1, 1245210, 0, 1, 1245211, 0, 1, 1245212, 0, 1, 1245213, 0, 1, 1245214, 0, 1, 1245215, 0, 1, 327711, 0, 2, 393247, 0, 2, 458783, 0, 2, 524319, 0, 2, 589855, 0, 2, 655391, 0, 2, 720927, 131072, 2, 786463, 0, 2, 851999, 0, 2, 917535, 0, 2, 983071, 0, 2, 1048607, 0, 2, 1114143, 0, 2, 1179679, 0, 2, -262113, 0, 2, -196577, 0, 2, -131041, 0, 2, -65505, 0, 2, 31, 0, 2, 65567, 0, 2, 131103, 0, 2, 196639, 131072, 2, 262175, 0, 2, -262142, 0, 2, -196606, 0, 2, -131070, 0, 2, -65534, 0, 2, 2, 0, 2, 65538, 0, 2, 131074, 0, 2, -262122, 0, 2, -196586, 0, 2, -131050, 0, 2, -65514, 0, 2, 22, 0, 2, 65558, 0, 2, 131094, 0, 2, 196630, 0, 1, -262133, 0, 2, -196597, 0, 2, -131061, 0, 2, -65525, 0, 2, 11, 0, 2, 65547, 0, 2, 131083, 0, 2, 196619, 0, 1, 196610, 0, 1, 196628, 0, 1, 196629, 0, 1, 196627, 0, 1, 196626, 0, 1, 196623, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196611, 0, 1, 196612, 0, 1, 196613, 0, 1, 196631, 0, 1, 196632, 0, 1, 196636, 0, 1, 196637, 0, 1, 196638, 0, 1, 262141, 0, 1, 262142, 0, 1, 262143, 0, 1, 720922, 0, 1, 720923, 0, 1, 720924, 0, 1, 720925, 0, 1, 720926, 0, 1, 720919, 0, 1, 720918, 131072, 2, 786454, 0, 2, 851990, 0, 2, 917526, 0, 2, 983062, 0, 2, 1048598, 0, 2, 1114134, 0, 2, 1179670, 0, 2, 786429, 0, 1, 786430, 0, 1, 786431, 0, 1, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1, 720901, 65536, 2, 786437, 0, 2, 851973, 0, 2, 917509, 0, 2, 983045, 0, 2, 1048581, 0, 2, 1114117, 0, 2, 1179653, 0, 2, 196621, 0, 1, 196622, 0, 1, 196620, 0, 1, 196609, 131072, 1)
 
+[node name="TextEdit" type="Label" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ynr8j")
+offset_left = 117.0
+offset_top = 68.0
+offset_right = 425.0
+offset_bottom = 136.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_cty6h")
+text = "Prototyping Lounge"
+script = ExtResource("7_o31bt")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.407843, 0.258824, 1)
+position = Vector2(201.81, 199.81)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_yn7p8")
+
 [node name="player" parent="." instance=ExtResource("4_5gwe0")]
 position = Vector2(160, 96)
 
@@ -191,11 +238,6 @@ texture = SubResource("GradientTexture2D_6ofav")
 
 [node name="Book" parent="." instance=ExtResource("5_pq1g4")]
 position = Vector2(24, 64)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(176, 96)
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("5_yn7p8")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(247, 28)
@@ -220,3 +262,9 @@ position = Vector2(-16, 220)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_6ofav")
+
+[node name="Book2" parent="." instance=ExtResource("5_pq1g4")]
+position = Vector2(109, -8)
+
+[node name="Book3" parent="." instance=ExtResource("5_pq1g4")]
+position = Vector2(256, 8)

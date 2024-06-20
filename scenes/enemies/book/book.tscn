@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://daf1tfulcwlv7"]
+[gd_scene load_steps=17 format=3 uid="uid://daf1tfulcwlv7"]
 
 [ext_resource type="Texture2D" uid="uid://crd3dt8nas6eu" path="res://assets/animations/enemies/book1.png" id="1_74675"]
 [ext_resource type="Script" path="res://scenes/enemies/book/book.gd" id="1_ydrlh"]
@@ -118,6 +118,9 @@ _data = {
 "shoot_up": SubResource("Animation_ii6jv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_inf10"]
+radius = 62.0725
+
 [node name="Book" type="CharacterBody2D" node_paths=PackedStringArray("animation", "state_machine", "nav_agent")]
 collision_layer = 2
 collision_mask = 15
@@ -174,9 +177,12 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 50.0
-target_desired_distance = 50.0
 path_max_distance = 30.0
 path_postprocessing = 1
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_inf10")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_animation_player_animation_finished"]
