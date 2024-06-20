@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn23u6k14ivti"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_6m5wy"]
+[ext_resource type="Texture2D" uid="uid://bs2mhunpmmyte" path="res://assets/animations/items/coin.png" id="2_oiknq"]
+
+[sub_resource type="Animation" id="Animation_4kbs2"]
+resource_name = "coin_spin"
+length = 1.00003
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_atqdy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ilao"]
+_data = {
+"RESET": SubResource("Animation_atqdy"),
+"coin_spin": SubResource("Animation_4kbs2")
+}
+
+[sub_resource type="Gradient" id="Gradient_kpi2n"]
+offsets = PackedFloat32Array(0, 0.106236, 0.193995)
+colors = PackedColorArray(0, 0, 0.188235, 0.333333, 0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlg7r"]
+gradient = SubResource("Gradient_kpi2n")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="coin" type="Node2D" node_paths=PackedStringArray("animation")]
+position = Vector2(0, -4)
+script = ExtResource("1_6m5wy")
+animation = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oiknq")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ilao")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -32.0
+offset_top = -28.0
+offset_right = 32.0
+offset_bottom = 36.0
+texture = SubResource("GradientTexture2D_vlg7r")
