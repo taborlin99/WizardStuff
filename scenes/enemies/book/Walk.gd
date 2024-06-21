@@ -20,7 +20,6 @@ func physics_update(delta):
 	var distance_to_player = parent.global_position.distance_to(player.global_position)
 	if distance_to_player < attack_range and time_elapsed > 2:
 		return attack_state
-		
 	#if nav_agent.is_navigation_finished() and time_elapsed > 2:
 		#return attack_state
 	#if player.global_position - parent.global_position < Vector
@@ -38,3 +37,5 @@ func physics_update(delta):
 	
 func timer(delta):
 	time_elapsed += delta
+
+#player coupling, states knowing eachother, 

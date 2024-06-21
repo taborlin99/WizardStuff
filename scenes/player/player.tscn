@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=22 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Script" path="res://scenes/player/smoothing_2D.gd" id="2_16obg"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/player/CameraTarget.gd" id="4_6i6kj"]
 [ext_resource type="Script" path="res://scenes/player/Walk.gd" id="5_8lmm0"]
 [ext_resource type="Script" path="res://scenes/player/Roll.gd" id="6_tdajf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3to8"]
 
 [sub_resource type="Animation" id="Animation_5ywan"]
 length = 0.001
@@ -200,7 +202,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o18s"]
 radius = 4.12311
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animations", "state_machine")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animations", "state_machine") groups=["player"]]
 collision_layer = 8
 collision_mask = 3
 motion_mode = 1
@@ -220,6 +222,11 @@ hframes = 48
 
 [node name="CameraTarget" type="Node2D" parent="Smoothing2D"]
 script = ExtResource("4_6i6kj")
+
+[node name="Area2D" type="Area2D" parent="Smoothing2D" groups=["player_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Smoothing2D/Area2D"]
+shape = SubResource("CircleShape2D_c3to8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

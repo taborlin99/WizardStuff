@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://scenes/main/Camera2D.gd" id="3_sqrkj"]
 [ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="4_5gwe0"]
 [ext_resource type="Shader" path="res://shaders/testfont.gdshader" id="4_wcmb0"]
-[ext_resource type="PackedScene" uid="uid://daf1tfulcwlv7" path="res://scenes/enemies/book/book.tscn" id="5_pq1g4"]
 [ext_resource type="Texture2D" uid="uid://bttcuowxvbj4m" path="res://assets/icon.svg" id="5_yn7p8"]
 [ext_resource type="FontFile" uid="uid://be7x3j5rescy0" path="res://assets/Fonts/Px437_Acer_VGA_8x8.ttf" id="7_cty6h"]
 [ext_resource type="Script" path="res://scenes/main/TextEdit.gd" id="7_o31bt"]
+[ext_resource type="PackedScene" uid="uid://c006ssmvp01ln" path="res://scenes/enemies/slime.tscn" id="10_3x4ud"]
 [ext_resource type="PackedScene" uid="uid://dn23u6k14ivti" path="res://scripts/items/coin.tscn" id="10_eykq0"]
 
 [sub_resource type="Gradient" id="Gradient_04pah"]
@@ -214,13 +214,19 @@ layer_1/tile_data = PackedInt32Array(-262148, 131072, 2, -262147, 0, 1, -262146,
 [node name="TextEdit" type="Label" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ynr8j")
-offset_left = 117.0
-offset_top = 68.0
-offset_right = 425.0
-offset_bottom = 136.0
+offset_left = 190.0
+offset_top = 206.0
+offset_right = 498.0
+offset_bottom = 355.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("7_cty6h")
-text = "Prototyping Lounge"
+text = "Prototyping Lounge
+00000000000000
+
+To Do:
+spells	
+all the other stuff
+"
 script = ExtResource("7_o31bt")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -237,38 +243,8 @@ energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_6ofav")
 
-[node name="Book" parent="." instance=ExtResource("5_pq1g4")]
-position = Vector2(24, 64)
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(247, 28)
-energy = 2.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6ofav")
-
-[node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(299, 27)
-energy = 2.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6ofav")
-
-[node name="PointLight2D4" type="PointLight2D" parent="."]
-position = Vector2(13, 24)
-energy = 2.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6ofav")
-
-[node name="PointLight2D6" type="PointLight2D" parent="."]
-position = Vector2(-16, 220)
-energy = 2.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6ofav")
-
-[node name="Book2" parent="." instance=ExtResource("5_pq1g4")]
-position = Vector2(109, -8)
-
-[node name="Book3" parent="." instance=ExtResource("5_pq1g4")]
-position = Vector2(256, 8)
+[node name="Slime" parent="." instance=ExtResource("10_3x4ud")]
+position = Vector2(433, 130)
 
 [node name="coin" parent="." instance=ExtResource("10_eykq0")]
 position = Vector2(50, 229)

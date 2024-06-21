@@ -17,7 +17,6 @@ func _process(_delta):
 	pass
 
 func _on_state_change(new_state):	
-	print(new_state.name)
 	match new_state.name:
 		"Walk":
 			$player_sounds.play()

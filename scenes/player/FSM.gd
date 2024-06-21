@@ -20,7 +20,6 @@ func change_state(new_state : State):
 	
 	current_state = new_state
 	current_state.enter()
-	#print("changed state to ",current_state)
 	
 func input(event):
 	var new_state = current_state.input(event)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6cwfbkw8ameh"]
+
+[ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="1_eeqxk"]
+[ext_resource type="PackedScene" uid="uid://c006ssmvp01ln" path="res://scenes/enemies/slime.tscn" id="2_a3ulr"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_etgh8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_eeqxk")]
+
+[node name="Slime" parent="." instance=ExtResource("2_a3ulr")]
+
+[node name="StateChartDebugger" parent="." instance=ExtResource("3_etgh8")]
+offset_left = 74.0
+offset_top = -101.0
+offset_right = 664.0
+offset_bottom = 220.0
+initial_node_to_watch = NodePath("../Slime")

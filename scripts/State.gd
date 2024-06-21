@@ -8,10 +8,10 @@ signal state_transitioned
 
 func enter():
 	pass
-	
+
 func exit():
 	pass
-	
+
 func physics_update(_delta) -> State:
 	return null
 

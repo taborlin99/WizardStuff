@@ -31,7 +31,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/wandgrid/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/wandgrid/plugin.cfg")
 
 [filesystem]
 

@@ -1,7 +1,5 @@
 extends State
 
-@export var idle_state : State
-@export var shoot_state : State
 @export var walk_state : State
 var target_direction : Vector2
 var dash_speed = 100

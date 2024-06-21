@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://c006ssmvp01ln"]
+
+[ext_resource type="Script" path="res://Slime.gd" id="1_fruk3"]
+[ext_resource type="Texture2D" uid="uid://v4epfnw0ulg5" path="res://assets/animations/enemies/slimetemp.png" id="2_5q33f"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_uidh6"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_dqi6k"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_be6ge"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_klaxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngqlf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hb6ll"]
+radius = 78.2304
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_fruk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_5q33f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_ngqlf")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+shape = SubResource("CircleShape2D_hb6ll")
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_uidh6")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_dqi6k")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_be6ge")
+
+[node name="To Following" type="Node" parent="StateChart/Root/Idle"]
+script = ExtResource("6_klaxq")
+to = NodePath("../../Following")
+event = &"player_entered"
+delay_in_seconds = "0.0"
+
+[node name="Following" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_be6ge")
+
+[node name="Jumping" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_be6ge")
+
+[connection signal="area_entered" from="DetectionRange" to="." method="_on_detection_range_area_entered"]
+[connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Following" to="." method="_on_following_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/Following" to="." method="_on_following_state_physics_processing"]
