@@ -5,7 +5,6 @@ extends CharacterBody2D
 var speed = 20
 
 func _on_detection_range_area_entered(area):
-	print("something in area")
 	if area.is_in_group("player_area"):
 		$StateChart.send_event("player_entered")
 
