@@ -1,11 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://c006ssmvp01ln"]
+[gd_scene load_steps=15 format=3 uid="uid://c006ssmvp01ln"]
 
 [ext_resource type="Script" path="res://Slime.gd" id="1_fruk3"]
 [ext_resource type="Texture2D" uid="uid://v4epfnw0ulg5" path="res://assets/animations/enemies/slimetemp.png" id="2_5q33f"]
+[ext_resource type="Script" path="res://scenes/enemies/Navigation.gd" id="3_h01m3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_uidh6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_dqi6k"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_be6ge"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_klaxq"]
+
+[sub_resource type="Curve" id="Curve_m4xj0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mfyqd"]
+curve = SubResource("Curve_m4xj0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xfrpx"]
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_mfyqd")
+
+[sub_resource type="Gradient" id="Gradient_pqsc4"]
+offsets = PackedFloat32Array(0.073903, 0.138568)
+colors = PackedColorArray(0.14408, 0.188232, 0.0523401, 0.419608, 0.0509804, 0.0745098, 0.0117647, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anyao"]
+gradient = SubResource("Gradient_pqsc4")
+width = 20
+height = 20
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngqlf"]
 radius = 5.0
@@ -13,8 +38,16 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hb6ll"]
 radius = 78.2304
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("1_fruk3")
+nav_agent = NodePath("Navigation")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_xfrpx")
+texture = SubResource("GradientTexture2D_anyao")
+draw_order = 2
+trail_lifetime = 1.26
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
@@ -24,10 +57,14 @@ texture = ExtResource("2_5q33f")
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_ngqlf")
 
+[node name="Navigation" type="Node2D" parent="."]
+script = ExtResource("3_h01m3")
+
 [node name="DetectionRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 shape = SubResource("CircleShape2D_hb6ll")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("3_uidh6")

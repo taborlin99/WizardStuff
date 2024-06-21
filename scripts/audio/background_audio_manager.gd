@@ -1,6 +1,6 @@
 extends Node
 
-@onready var test = $test
+#@onready var test = $test
 @onready var bg_music = $bg_music
 
 var playerStateMachine: Node
@@ -30,9 +30,9 @@ func _on_state_change(new_state):
 		#$player_sounds.stop()
 	pass
 
-func _play_sfx(_sfx):
-	test.play()
-	pass
+#func _play_sfx(_sfx):
+	#test.play()
+	#pass
 
 func add_player_state_machine(_playerStateMachine):
 	playerStateMachine = _playerStateMachine

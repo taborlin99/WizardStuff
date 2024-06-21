@@ -1,22 +1,21 @@
 extends CharacterBody2D
 
+@export var nav_agent : Navigation
 @onready var player = get_node(Constants.playerPath)
-var speed = 60
+var speed = 20
 
 func _on_detection_range_area_entered(area):
 	print("something in area")
 	if area.is_in_group("player_area"):
 		$StateChart.send_event("player_entered")
-		print("player detected")
 
 func _on_idle_state_entered():
-	print("slime_idle")
+	pass
 
 func _on_following_state_entered():
-	print("slime_following")
+	pass
 
 func _on_following_state_physics_processing(delta):
-	var direction = Vector2(player.global_position - global_position)
-	direction = direction.normalized()
+	var direction = nav_agent.path_to_player
 	velocity = direction * speed
 	move_and_slide()

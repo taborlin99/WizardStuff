@@ -236,7 +236,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_yn7p8")
 
 [node name="player" parent="." instance=ExtResource("4_5gwe0")]
-position = Vector2(160, 96)
+position = Vector2(181, 111)
 
 [node name="PointLight2D6" type="PointLight2D" parent="player"]
 energy = 2.5
@@ -244,7 +244,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_6ofav")
 
 [node name="Slime" parent="." instance=ExtResource("10_3x4ud")]
-position = Vector2(433, 130)
+position = Vector2(133, 131)
 
 [node name="coin" parent="." instance=ExtResource("10_eykq0")]
 position = Vector2(50, 229)
