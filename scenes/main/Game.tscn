@@ -1,25 +1,14 @@
-[gd_scene load_steps=34 format=3 uid="uid://sj0qfy6lnd65"]
+[gd_scene load_steps=30 format=3 uid="uid://sj0qfy6lnd65"]
 
 [ext_resource type="Texture2D" uid="uid://chlwtwpmppqtf" path="res://assets/tiles/wizard_tileset.png" id="1_7g4sg"]
 [ext_resource type="Texture2D" uid="uid://c2aietwkcedc3" path="res://assets/tiles/updated tiles.png" id="2_0ogwk"]
 [ext_resource type="Script" path="res://scenes/main/Camera2D.gd" id="3_sqrkj"]
 [ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="4_5gwe0"]
-[ext_resource type="Shader" path="res://shaders/testfont.gdshader" id="4_wcmb0"]
-[ext_resource type="Texture2D" uid="uid://bttcuowxvbj4m" path="res://assets/icon.svg" id="5_yn7p8"]
+[ext_resource type="Texture2D" uid="uid://dtnda6lumugcw" path="res://assets/tiles/updated tilesNORMAL.png" id="4_npbti"]
 [ext_resource type="FontFile" uid="uid://be7x3j5rescy0" path="res://assets/Fonts/Px437_Acer_VGA_8x8.ttf" id="7_cty6h"]
-[ext_resource type="Script" path="res://scenes/main/TextEdit.gd" id="7_o31bt"]
-[ext_resource type="PackedScene" uid="uid://c006ssmvp01ln" path="res://scenes/enemies/slime.tscn" id="10_3x4ud"]
+[ext_resource type="Texture2D" uid="uid://dikjtkn6ndtqa" path="res://assets/animations/player/wizardtest.png" id="9_vbyvk"]
+[ext_resource type="Texture2D" uid="uid://cs8q8crumhnbg" path="res://assets/animations/player/wizardtestNORMAL.png" id="10_bvb04"]
 [ext_resource type="PackedScene" uid="uid://dn23u6k14ivti" path="res://scripts/items/coin.tscn" id="10_eykq0"]
-
-[sub_resource type="Gradient" id="Gradient_04pah"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_hy0lh"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3t1ao"]
-width = 322
-height = 182
-color_ramp = SubResource("Gradient_04pah")
-noise = SubResource("FastNoiseLite_hy0lh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prmb6"]
 texture = ExtResource("1_7g4sg")
@@ -88,8 +77,13 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o453a"]
 polygon = PackedVector2Array(-4, -8, 8, -8, 8, 8, -4, 8)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_hfsdd"]
+diffuse_texture = ExtResource("2_0ogwk")
+normal_texture = ExtResource("4_npbti")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ckbhh"]
-texture = ExtResource("2_0ogwk")
+texture = SubResource("CanvasTexture_hfsdd")
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -141,58 +135,84 @@ texture = ExtResource("2_0ogwk")
 2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34gwh"]
+texture = ExtResource("2_0ogwk")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_prcpk"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 navigation_layer_0/layers = 0
 sources/0 = SubResource("TileSetAtlasSource_ckbhh")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_pnkkf"]
-resource_local_to_scene = true
-noise_type = 0
-seed = 895
-frequency = 0.0147
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n5fpi"]
-seamless = true
-seamless_blend_skirt = 0.0
-noise = SubResource("FastNoiseLite_pnkkf")
-
-[sub_resource type="Gradient" id="Gradient_wcmwr"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.34026, 0.464935, 0.587013)
-colors = PackedColorArray(0.886275, 0, 0, 1, 0.913725, 0.501961, 0.239216, 1, 0.913725, 0.705882, 0.239216, 1, 0.77, 0.64064, 0.2849, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rxj2u"]
-gradient = SubResource("Gradient_wcmwr")
+sources/1 = SubResource("TileSetAtlasSource_34gwh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ynr8j"]
-shader = ExtResource("4_wcmb0")
-shader_parameter/scroll = Vector2(0.1, 0.1)
-shader_parameter/NOISE_PATTERN = SubResource("NoiseTexture2D_n5fpi")
-shader_parameter/TONE_MAPPING = SubResource("GradientTexture1D_rxj2u")
 
-[sub_resource type="Gradient" id="Gradient_wqf42"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.28, 0.833333)
-colors = PackedColorArray(0.8, 0.5376, 0.144, 1, 0.488996, 0.396666, 0.173905, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_i6k0l"]
+offsets = PackedFloat32Array(0, 0.06, 0.5, 0.64)
+colors = PackedColorArray(1, 1, 1, 1, 0.130772, 0.130772, 0.130772, 1, 0.0184758, 0.0184758, 0.0184758, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ofav"]
-gradient = SubResource("Gradient_wqf42")
-width = 128
-height = 128
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8je8r"]
+gradient = SubResource("Gradient_i6k0l")
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.861789, 0.211382)
+fill_to = Vector2(0.99, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1xnqb"]
+diffuse_texture = ExtResource("9_vbyvk")
+normal_texture = ExtResource("10_bvb04")
+
+[sub_resource type="Environment" id="Environment_alybi"]
+background_mode = 3
+tonemap_mode = 3
+ssao_radius = 0.01
+ssil_radius = 16.0
+ssil_intensity = 16.0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 3.37
+glow_strength = 0.68
+glow_bloom = 0.24
+glow_blend_mode = 0
+glow_hdr_threshold = 0.16
+glow_hdr_scale = 0.63
+adjustment_enabled = true
 
 [node name="Game" type="Node2D"]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(220.5, 104.5)
-scale = Vector2(1.99689, 2.48901)
-texture = SubResource("NoiseTexture2D_3t1ao")
 
 [node name="CameraController" type="Camera2D" parent="."]
 position = Vector2(160, 104)
@@ -214,40 +234,38 @@ layer_1/tile_data = PackedInt32Array(-262148, 131072, 2, -262147, 0, 1, -262146,
 [node name="TextEdit" type="Label" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ynr8j")
-offset_left = 190.0
-offset_top = 206.0
-offset_right = 498.0
-offset_bottom = 355.0
+offset_left = 184.0
+offset_top = 241.0
+offset_right = 492.0
+offset_bottom = 390.0
 scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
 theme_override_fonts/font = ExtResource("7_cty6h")
 text = "Prototyping Lounge
-00000000000000
-
+.
+.
 To Do:
 spells	
 all the other stuff
 "
-script = ExtResource("7_o31bt")
-
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.458824, 0.407843, 0.258824, 1)
-position = Vector2(131, 266)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_yn7p8")
 
 [node name="player" parent="." instance=ExtResource("4_5gwe0")]
 position = Vector2(181, 111)
-
-[node name="PointLight2D6" type="PointLight2D" parent="player"]
-energy = 2.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6ofav")
-
-[node name="Slime" parent="." instance=ExtResource("10_3x4ud")]
-position = Vector2(133, 131)
 
 [node name="coin" parent="." instance=ExtResource("10_eykq0")]
 position = Vector2(50, 229)
 
 [node name="coin2" parent="." instance=ExtResource("10_eykq0")]
 position = Vector2(37, 227)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(0, -16)
+color = Color(0, 1, 1, 1)
+energy = 16.0
+texture = SubResource("GradientTexture2D_8je8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_1xnqb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_alybi")

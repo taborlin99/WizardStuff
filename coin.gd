@@ -3,6 +3,3 @@ extends Node2D
 
 func _ready():
 	animation.play("coin_spin")
-
-func _process(delta):
-	pass
