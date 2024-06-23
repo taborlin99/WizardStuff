@@ -798,4 +798,3 @@ all the other stuff
 "
 
 [node name="player" parent="." instance=ExtResource("4_5gwe0")]
-position = Vector2(181, 111)
