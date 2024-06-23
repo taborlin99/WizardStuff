@@ -1,4 +1,4 @@
-extends Projectile
+extends SpellEntity
 
 @onready var impact_node = $impact
 
@@ -14,5 +14,5 @@ func _on_hurtbox_body_entered(body):
 	self.hide()
 
 func play_expired():
-	BackgroundAudioManager._play_sfx("test")
+	#BackgroundAudioManager._play_sfx("test")
 	print("play sound")
