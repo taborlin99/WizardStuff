@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dn23u6k14ivti"]
 
-[ext_resource type="Script" path="res://coin.gd" id="1_6m5wy"]
+[ext_resource type="Script" path="res://scenes/environment/coin/coin.gd" id="1_tgj6i"]
 [ext_resource type="Texture2D" uid="uid://bs2mhunpmmyte" path="res://assets/animations/items/coin.png" id="2_oiknq"]
 
 [sub_resource type="Animation" id="Animation_atqdy"]
@@ -53,7 +53,7 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="coin" type="Node2D" node_paths=PackedStringArray("animation")]
 position = Vector2(0, -4)
-script = ExtResource("1_6m5wy")
+script = ExtResource("1_tgj6i")
 animation = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

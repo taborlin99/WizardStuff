@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2aietwkcedc3"
-path="res://.godot/imported/updated tiles.png-04f86e6e4fef4bc71b50d70b06ad37e3.ctex"
+uid="uid://dikjtkn6ndtqa"
+path="res://.godot/imported/wizardtest.png-752a3b30b769e3eee4b7773c1155d30a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/updated tiles.png"
-dest_files=["res://.godot/imported/updated tiles.png-04f86e6e4fef4bc71b50d70b06ad37e3.ctex"]
+source_file="res://assets/animations/player/wizardtest.png"
+dest_files=["res://.godot/imported/wizardtest.png-752a3b30b769e3eee4b7773c1155d30a.ctex"]
 
 [params]
 

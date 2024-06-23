@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chlwtwpmppqtf"
-path="res://.godot/imported/wizard_tileset.png-8b1b5dc154bfbd9f32c415057630072d.ctex"
+uid="uid://dtnda6lumugcw"
+path="res://.godot/imported/updated tilesNORMAL.png-8dfd6ec835a2e7cb65e5eceb4ae5af3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/wizard_tileset.png"
-dest_files=["res://.godot/imported/wizard_tileset.png-8b1b5dc154bfbd9f32c415057630072d.ctex"]
+source_file="res://assets/tilesets/updated tilesNORMAL.png"
+dest_files=["res://.godot/imported/updated tilesNORMAL.png-8dfd6ec835a2e7cb65e5eceb4ae5af3f.ctex"]
 
 [params]
 

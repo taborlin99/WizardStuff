@@ -35,7 +35,7 @@ func animate():
 		pass
 
 func exit():
-	pass
+	return idle_state
 
 
 func _on_animation_player_animation_finished(_animation_name):

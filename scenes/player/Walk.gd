@@ -16,8 +16,8 @@ func enter():
 	pass
 	
 func input(_event) -> State:
-	#if Input.is_action_just_pressed("click"):
-		#return cast_state
+	if Input.is_action_pressed("click"):
+		return cast_state
 		
 	if Input.is_action_just_pressed("roll"):
 		return roll_state

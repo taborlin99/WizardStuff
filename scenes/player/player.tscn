@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0hw3mqvrs8pi"]
+[gd_scene load_steps=23 format=3 uid="uid://c0hw3mqvrs8pi"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gq8pa"]
 [ext_resource type="Script" path="res://scenes/player/smoothing_2D.gd" id="2_16obg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/player/CameraTarget.gd" id="4_6i6kj"]
 [ext_resource type="Script" path="res://scenes/player/Walk.gd" id="5_8lmm0"]
 [ext_resource type="Script" path="res://scenes/player/Roll.gd" id="6_tdajf"]
+[ext_resource type="Script" path="res://scenes/player/Cast.gd" id="9_x6qul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3to8"]
 
@@ -238,24 +239,35 @@ script = ExtResource("3_vt03d")
 initial_state = NodePath("Idle")
 parent = NodePath("..")
 
-[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "roll_state")]
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "roll_state", "cast_state")]
 script = ExtResource("4_5o0wn")
 animation = NodePath("../../AnimationPlayer")
 walk_state = NodePath("../Walk")
 roll_state = NodePath("../Roll")
+cast_state = NodePath("../Cast")
 
-[node name="Walk" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "idle_state", "roll_state")]
+[node name="Walk" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "idle_state", "roll_state", "cast_state")]
 script = ExtResource("5_8lmm0")
 animation = NodePath("../../AnimationPlayer")
 idle_state = NodePath("../Idle")
 roll_state = NodePath("../Roll")
+cast_state = NodePath("../Cast")
 max_speed = 50.0
 
-[node name="Roll" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "idle_state")]
+[node name="Roll" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "idle_state", "cast_state")]
 script = ExtResource("6_tdajf")
 animation = NodePath("../../AnimationPlayer")
 walk_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
+cast_state = NodePath("../Cast")
+
+[node name="Cast" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "roll_state", "idle_state")]
+script = ExtResource("9_x6qul")
+animation = NodePath("../../AnimationPlayer")
+walk_state = NodePath("../Walk")
+roll_state = NodePath("../Roll")
+idle_state = NodePath("../Idle")
+cast_movespeed = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

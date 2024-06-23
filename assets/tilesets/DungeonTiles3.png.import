@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdotrna63w67"
-path="res://.godot/imported/inventory_ui.png-7b5c5310605e48e70b3d35dad56f6781.ctex"
+uid="uid://bky7msx7wdtqw"
+path="res://.godot/imported/DungeonTiles3.png-7141fa108dba093c8944ae1411fdbcaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_ui.png"
-dest_files=["res://.godot/imported/inventory_ui.png-7b5c5310605e48e70b3d35dad56f6781.ctex"]
+source_file="res://assets/tilesets/DungeonTiles3.png"
+dest_files=["res://.godot/imported/DungeonTiles3.png-7141fa108dba093c8944ae1411fdbcaa.ctex"]
 
 [params]
 

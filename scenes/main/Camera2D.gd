@@ -48,12 +48,13 @@ func smooth_damp(current: float, target: float, current_velocity: float, smooth_
 	return [output, current_velocity]
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_1):
-		pixel_snap = not pixel_snap
-		print("Camera pixel snap: ", pixel_snap)
-	if Input.is_key_pressed(KEY_2):
-		enable_smoothing = not enable_smoothing
-		print("Camera smoothing: ", enable_smoothing)
+	#if Input.is_key_pressed(KEY_1):
+		#pixel_snap = not pixel_snap
+		#print("Camera pixel snap: ", pixel_snap)
+	#if Input.is_key_pressed(KEY_2):
+		#enable_smoothing = not enable_smoothing
+		#print("Camera smoothing: ", enable_smoothing)
+	pass
 
 # It's important that the camera position gets updated in _process instead of _physics_process,
 # since it needs to be dependent on frame rate.

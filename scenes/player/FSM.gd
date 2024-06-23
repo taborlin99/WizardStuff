@@ -10,6 +10,7 @@ func _ready():
 	BackgroundAudioManager.add_player_state_machine(self)
 	for child in get_children():
 		child.parent = parent
+		print(child)
 
 	change_state(initial_state)
 	
@@ -19,6 +20,7 @@ func change_state(new_state : State):
 		current_state.exit()
 	
 	current_state = new_state
+	print(current_state)
 	current_state.enter()
 	
 func input(event):

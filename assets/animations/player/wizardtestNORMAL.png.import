@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d18totky8nodb"
-path="res://.godot/imported/slot_ui.png-e66ac1eab9b6dcf1771e4c8a97b89818.ctex"
+uid="uid://cs8q8crumhnbg"
+path="res://.godot/imported/wizardtestNORMAL.png-36d7072e5c49a002a381f014e6533c87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slot_ui.png"
-dest_files=["res://.godot/imported/slot_ui.png-e66ac1eab9b6dcf1771e4c8a97b89818.ctex"]
+source_file="res://assets/animations/player/wizardtestNORMAL.png"
+dest_files=["res://.godot/imported/wizardtestNORMAL.png-36d7072e5c49a002a381f014e6533c87.ctex"]
 
 [params]
 

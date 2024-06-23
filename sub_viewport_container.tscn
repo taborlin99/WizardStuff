@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://vfd4ux1h307m"]
-
-[node name="SubViewportContainer" type="SubViewportContainer"]
-offset_right = 40.0
-offset_bottom = 40.0

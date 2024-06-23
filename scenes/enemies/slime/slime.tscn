@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://c006ssmvp01ln"]
 
-[ext_resource type="Script" path="res://Slime.gd" id="1_fruk3"]
-[ext_resource type="Texture2D" uid="uid://v4epfnw0ulg5" path="res://assets/animations/enemies/slimetemp.png" id="2_5q33f"]
-[ext_resource type="Script" path="res://scenes/enemies/Navigation.gd" id="3_h01m3"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_uidh6"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_dqi6k"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_be6ge"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_klaxq"]
+[ext_resource type="Script" path="res://scenes/enemies/Slime.gd" id="1_uvsv8"]
+[ext_resource type="Texture2D" uid="uid://v4epfnw0ulg5" path="res://assets/animations/enemies/slimetemp.png" id="2_awubd"]
+[ext_resource type="Script" path="res://scenes/enemies/Navigation.gd" id="3_akibk"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="4_bq1gf"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_1ioou"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_lvxpo"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_51edu"]
 
 [sub_resource type="Curve" id="Curve_m4xj0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -39,7 +39,7 @@ radius = 5.0
 radius = 78.2304
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
-script = ExtResource("1_fruk3")
+script = ExtResource("1_uvsv8")
 nav_agent = NodePath("Navigation")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -51,14 +51,14 @@ trail_lifetime = 1.26
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("2_5q33f")
+texture = ExtResource("2_awubd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_ngqlf")
 
 [node name="Navigation" type="Node2D" parent="."]
-script = ExtResource("3_h01m3")
+script = ExtResource("3_akibk")
 
 [node name="DetectionRange" type="Area2D" parent="."]
 
@@ -67,26 +67,26 @@ shape = SubResource("CircleShape2D_hb6ll")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="StateChart" type="Node" parent="."]
-script = ExtResource("3_uidh6")
+script = ExtResource("4_bq1gf")
 
 [node name="Root" type="Node" parent="StateChart"]
-script = ExtResource("4_dqi6k")
+script = ExtResource("5_1ioou")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_be6ge")
+script = ExtResource("6_lvxpo")
 
 [node name="To Following" type="Node" parent="StateChart/Root/Idle"]
-script = ExtResource("6_klaxq")
+script = ExtResource("7_51edu")
 to = NodePath("../../Following")
 event = &"player_entered"
 delay_in_seconds = "0.0"
 
 [node name="Following" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_be6ge")
+script = ExtResource("6_lvxpo")
 
 [node name="Jumping" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_be6ge")
+script = ExtResource("6_lvxpo")
 
 [connection signal="area_entered" from="DetectionRange" to="." method="_on_detection_range_area_entered"]
 [connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
