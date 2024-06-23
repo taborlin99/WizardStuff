@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cob3xj1ixngl2"
-path="res://.godot/imported/bolt_ui.png-f4fb1342631691926a456a86bc7521fd.ctex"
+uid="uid://cxdotrna63w67"
+path="res://.godot/imported/inventory_ui.png-c0e9349f776f28788a37534d2b617a66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bolt_ui.png"
-dest_files=["res://.godot/imported/bolt_ui.png-f4fb1342631691926a456a86bc7521fd.ctex"]
+source_file="res://assets/UI/inventory_ui.png"
+dest_files=["res://.godot/imported/inventory_ui.png-c0e9349f776f28788a37534d2b617a66.ctex"]
 
 [params]
 

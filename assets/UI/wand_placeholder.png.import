@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djn1btdaahana"
-path="res://.godot/imported/blast_ui.png-c71f7fb28cfe5bb7abc17abf6f50a222.ctex"
+uid="uid://b6w5hmvrbaxf7"
+path="res://.godot/imported/wand_placeholder.png-2ab37f0393e8daf5638c3b063876b633.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blast_ui.png"
-dest_files=["res://.godot/imported/blast_ui.png-c71f7fb28cfe5bb7abc17abf6f50a222.ctex"]
+source_file="res://assets/UI/wand_placeholder.png"
+dest_files=["res://.godot/imported/wand_placeholder.png-2ab37f0393e8daf5638c3b063876b633.ctex"]
 
 [params]
 
