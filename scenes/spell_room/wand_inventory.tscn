@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://tavmbv5qj4b3"]
+
+[ext_resource type="Texture2D" uid="uid://cxdotrna63w67" path="res://assets/inventory_ui.png" id="1_bc488"]
+
+[node name="WandInventory" type="TextureRect"]
+z_index = 1
+size_flags_vertical = 0
+texture = ExtResource("1_bc488")
+expand_mode = 5
+stretch_mode = 4
