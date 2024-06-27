@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cqwkpr0dtvrrb"]
 
-[ext_resource type="Script" path="res://Player_Proto.gd" id="1_au5xg"]
+[ext_resource type="Script" path="res://scenes/player/Player_Proto.gd" id="1_au5xg"]
 [ext_resource type="Texture2D" uid="uid://ds7d7opx6fhik" path="res://assets/animations/player/updated_wizard-sheet-export.png" id="2_5gge8"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_mtfgy"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_n3207"]
@@ -98,11 +98,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "state") groups=["player"]]
+collision_layer = 8
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_au5xg")
 animation_player = NodePath("AnimationPlayer")
 state = NodePath("StateChart")
-max_speed = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5gge8")
@@ -197,6 +198,7 @@ to = NodePath("../../Idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
+[connection signal="state_entered" from="StateChart/Root/Walk" to="." method="_on_walk_state_entered"]
 [connection signal="state_input" from="StateChart/Root/Walk" to="." method="_on_walk_state_input"]
 [connection signal="state_physics_processing" from="StateChart/Root/Walk" to="." method="_on_walk_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
@@ -207,3 +209,5 @@ delay_in_seconds = "0.0"
 [connection signal="state_input" from="StateChart/Root/Dash" to="." method="_on_dash_state_input"]
 [connection signal="state_physics_processing" from="StateChart/Root/Dash" to="." method="_on_dash_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/Root/Cast" to="." method="_on_cast_state_entered"]
+[connection signal="state_exited" from="StateChart/Root/Cast" to="." method="_on_cast_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/Root/Cast" to="." method="_on_cast_state_physics_processing"]

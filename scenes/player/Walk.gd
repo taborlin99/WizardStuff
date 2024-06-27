@@ -29,7 +29,6 @@ func input(_event) -> State:
 func physics_update(_delta) -> State:
 	animate()
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	direction = direction.normalized()
 	parent.velocity = direction * max_speed
 	parent.move_and_slide()
 	return null

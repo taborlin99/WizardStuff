@@ -211,11 +211,12 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_gq8pa")
 animations = NodePath("AnimationPlayer")
 state_machine = NodePath("FSM")
-max_speed = 60.0
+max_speed = 10.0
 acceleration = 20.0
 
 [node name="Smoothing2D" type="Node2D" parent="."]
 script = ExtResource("2_16obg")
+flags = 55
 
 [node name="Sprite2D" type="Sprite2D" parent="Smoothing2D"]
 texture = ExtResource("2_hewl8")
@@ -252,7 +253,7 @@ animation = NodePath("../../AnimationPlayer")
 idle_state = NodePath("../Idle")
 roll_state = NodePath("../Roll")
 cast_state = NodePath("../Cast")
-max_speed = 50.0
+max_speed = 30.0
 
 [node name="Roll" type="Node" parent="FSM" node_paths=PackedStringArray("animation", "walk_state", "idle_state", "cast_state")]
 script = ExtResource("6_tdajf")

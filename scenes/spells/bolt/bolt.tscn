@@ -42,7 +42,7 @@ script = ExtResource("1_cro2u")
 initial_speed = 200.0
 max_speed = 160.0
 acceleration = 5.0
-lifetime = 1.0
+lifetime = 10.0
 damage = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

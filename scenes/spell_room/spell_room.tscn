@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cg1wobghyihu2"]
 
 [ext_resource type="PackedScene" uid="uid://c0hw3mqvrs8pi" path="res://scenes/player/player.tscn" id="1_5j020"]
-[ext_resource type="Texture2D" uid="uid://dy7m5a6et27qe" path="res://assets/UI/ui_box.png" id="1_bv7pr"]
-[ext_resource type="Texture2D" uid="uid://d18totky8nodb" path="res://assets/slot_ui.png" id="2_4cfoh"]
-[ext_resource type="Texture2D" uid="uid://cob3xj1ixngl2" path="res://assets/bolt_ui.png" id="2_p27af"]
+[ext_resource type="Texture2D" uid="uid://csxgi665ott8" path="res://assets/UI/ui_box.png" id="1_bv7pr"]
+[ext_resource type="Texture2D" uid="uid://d18totky8nodb" path="res://assets/UI/slot_ui.png" id="2_4cfoh"]
+[ext_resource type="Texture2D" uid="uid://cob3xj1ixngl2" path="res://assets/UI/spell_icons/bolt_ui.png" id="2_p27af"]
 [ext_resource type="Script" path="res://scenes/spell_room/WandComponentSlot.gd" id="3_0sqfj"]
 [ext_resource type="Script" path="res://scripts/spell_room/SpellComponent.gd" id="4_fs10u"]
 
