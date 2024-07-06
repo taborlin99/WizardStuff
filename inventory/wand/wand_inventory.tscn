@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd72t21vtkpdd"]
+
+[ext_resource type="Script" path="res://inventory/wand/wand_inventory.gd" id="1_v7kuw"]
+
+[node name="WandInventory" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_v7kuw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 7

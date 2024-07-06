@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxrafdvw14tww"]
+
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="1_6jx7w"]
+[ext_resource type="Script" path="res://items/spells/projectiles/base_projectile.gd" id="1_7lcft"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pgrp0"]
+
+[node name="BaseProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7lcft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pgrp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_6jx7w")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WandData" load_steps=6 format=3 uid="uid://y5qiyy4g8coj"]
+
+[ext_resource type="Script" path="res://items/wands/wand_data/wand_data.gd" id="1_5iake"]
+[ext_resource type="Resource" uid="uid://cg4qoyv027d8e" path="res://items/item_data/locked_slot.tres" id="1_ecpu5"]
+[ext_resource type="Resource" uid="uid://brhe5c178fl6i" path="res://items/item_data/empty.tres" id="2_4qlls"]
+[ext_resource type="Resource" uid="uid://b371giwxuuaep" path="res://items/spells/projectiles/bolt/bolt.tres" id="3_ami0p"]
+[ext_resource type="Resource" uid="uid://7kouxx5jny1o" path="res://items/spells/projectiles/bolt/fast_bolt.tres" id="4_6i085"]
+
+[resource]
+script = ExtResource("1_5iake")
+item_datas = Array[Resource("res://items/item_data/item_data.gd")]([ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("2_4qlls"), ExtResource("3_ami0p"), ExtResource("4_6i085"), ExtResource("2_4qlls"), ExtResource("2_4qlls"), ExtResource("2_4qlls"), ExtResource("2_4qlls"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5"), ExtResource("1_ecpu5")])
