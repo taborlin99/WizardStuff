@@ -3,10 +3,7 @@ extends CharacterBody2D
 signal toggle_inventory()
 signal cast_spell_chain()
 
-
 @export var player_wand: WandData #placeholder wand array
-
-
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
