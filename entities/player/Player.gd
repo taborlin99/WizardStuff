@@ -3,9 +3,10 @@ extends CharacterBody2D
 signal toggle_inventory()
 signal cast_spell_chain()
 
-#will add player movement and animation later, spell system first
 
 @export var player_wand: WandData #placeholder wand array
+
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):

@@ -3,13 +3,14 @@ class_name WandInventory
 
 @onready var player = $"../../../Player"
 const Slot = preload("res://inventory/slot/slot.tscn")
-var wand_data = preload("res://items/wands/test_wand.tres")
+var wand_data : Resource
 var spell_chain = []
 @onready var item_grid = $MarginContainer/ItemGrid
 
 func _ready():
 	player.cast_spell_chain.connect(on_cast_spell_chain)
-
+	wand_data = player.player_wand
+	
 func set_wand_inventory(wand_data: WandData):
 	populate_spell_grid(wand_data)
 	wand_data.wand_updated.connect(populate_spell_grid)
@@ -40,6 +41,5 @@ func cast_spell_chain(spell_chain, index, direction):
 		new_spell.spell_chain = spell_chain
 		new_spell.index = index + 1
 		get_tree().root.add_child(new_spell)
-		print(index, spell_chain.size())
 	else: 
-		print("end spell chain")
+		pass

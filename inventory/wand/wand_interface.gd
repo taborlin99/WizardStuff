@@ -2,7 +2,7 @@ extends Control
 
 var grabbed_item_data: ItemData
 
-signal set_spell_data(wand_data)
+#signal set_spell_data(wand_data)
 
 @onready var wand_inventory = $WandInventory
 @onready var wand_data: WandData = wand_inventory.wand_data
@@ -15,28 +15,15 @@ func _ready():
 func set_wand_inventory(wand_data: WandData):
 	wand_inventory.set_wand_inventory(wand_data)
 	wand_data.wand_interact.connect(on_wand_interact)
-	set_spell_data.emit(wand_data)
+	#set_spell_data.emit(wand_data)
 
 func _physics_process(delta):
 	if grabbed_item.visible:
 		grabbed_item.global_position = get_global_mouse_position() + Vector2(5, 5)
 
 func on_wand_interact(wand_data: WandData, index: int, button: int):
-	if not wand_data:
-		push_error("wand_data is null")
-		return
-	
-	if index < 0 or index >= wand_data.item_datas.size():
-		push_error("Index out of bounds")
-		return
-	
 	var item_data = wand_data.item_datas[index]
-	if not item_data:
-		push_error("item_data at index " + str(index) + " is null")
-		return
-
 	if item_data.locked:
-		print("This slot is locked")
 		return
 	else:
 		match [item_data.empty, grabbed_item_data, button]:

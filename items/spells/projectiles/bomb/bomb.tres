@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ProjectileData" load_steps=3 format=3 uid="uid://dhgg3i5clud1u"]
+
+[ext_resource type="Script" path="res://items/spells/spell_data/projectile_data.gd" id="1_hh3vo"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_2eg4t"]
+
+[resource]
+script = ExtResource("1_hh3vo")
+max_speed = 0.0
+initial_speed = 40.0
+acceleration = 5.0
+lifetime = 1.5
+damage = 10
+size = 1.0
+spawn_count = 6
+spawn_spread = 6.283
+homing = false
+peircing = false
+tracking = false
+orbiting = false
+mana_cost = 30
+cooldown = 10
+name = "bomb"
+description = "be very careful"
+texture = ExtResource("2_2eg4t")
+locked = false
+empty = false

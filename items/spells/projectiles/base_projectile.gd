@@ -7,13 +7,16 @@ var direction : Vector2 = Vector2.ZERO
 var spell_chain
 var index : int
 
-var max_speed 
-var acceleration
-var initial_speed
-var lifetime
-var damage 
-var size 
-var timer
+var max_speed 		#
+var acceleration	#
+var initial_speed	#
+var lifetime		#
+var damage 			#TODO
+var size 			#TODO
+var spawn_count
+var spawn_spread
+
+var timer			#
 var timeout : bool = false
 
 func initiate_spell():
@@ -23,6 +26,8 @@ func initiate_spell():
 	lifetime = data.lifetime
 	damage = data.damage
 	size = data.size
+	spawn_count = data.spawn_count
+	spawn_spread = data.spawn_spread
 	start_timer()
 	
 func start_timer():
@@ -45,16 +50,36 @@ func spell_end():
 	queue_free()
 	
 func cast_spell_chain(spell_chain, index, direction):
-	 #rudimentary spell spawning 
-	#TODO add alternative spawning patterns, spawning multiple projs.
 	if index < spell_chain.size():
 		var data = spell_chain[index]
-		var new_spell = data.scene.instantiate()
-		new_spell.data = data
-		new_spell.direction = direction
-		new_spell.spell_chain = spell_chain
-		new_spell.index = index + 1
-		new_spell.global_position = global_position
-		get_tree().root.add_child(new_spell)
+		var angle_increment = spawn_spread/spawn_count
+		var initial_angle = -spawn_spread/2
+		for i in range(spawn_count):
+			var angle = initial_angle + (i * angle_increment)
+			var new_spell = data.scene.instantiate()
+			new_spell.data = data
+			new_spell.direction = direction.rotated(angle)
+			new_spell.spell_chain = spell_chain
+			new_spell.index = index + 1
+			new_spell.global_position = global_position
+			get_tree().root.add_child(new_spell)
 	else:
-		print("end spell chain")
+		pass
+
+#func cast_circle(spell_chain, index, direction):
+	#if index < spell_chain.size():
+		#var data = spell_chain[index]
+		#var angle_increment = spawn_spread/spawn_count
+		#var initial_angle = -spawn_spread/2
+		#for i in range(spawn_count):
+			#var angle = initial_angle + (i * angle_increment)
+			#var new_spell = data.scene.instantiate()
+			#new_spell.data = data
+			#new_spell.direction = direction.rotated(angle)
+			#new_spell.spell_chain = spell_chain
+			#new_spell.index = index + 1
+			#new_spell.global_position = global_position
+			#get_tree().root.add_child(new_spell)
+			
+		
+	
