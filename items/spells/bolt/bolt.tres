@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3 uid="uid://cpkey5l3knh80"]
+
+[ext_resource type="Script" path="res://items/class_data/spell_data.gd" id="1_kdewq"]
+[ext_resource type="PackedScene" uid="uid://343lu6typy6h" path="res://items/spells/scene/spellscene.tscn" id="1_ll04m"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="3_8eke2"]
+
+[resource]
+script = ExtResource("1_kdewq")
+mana_cost = 10
+max_speed = 200.0
+initial_speed = 200.0
+acceleration = 0.0
+lifetime = 0.5
+damage = 3
+size = 1.0
+scene = ExtResource("1_ll04m")
+spawn_count = 1
+spawn_spread = 0
+homing = false
+peircing = false
+tracking = false
+orbiting = false
+name = "bolt"
+description = "classic bolt"
+texture = ExtResource("3_8eke2")
+empty = false
+locked = false

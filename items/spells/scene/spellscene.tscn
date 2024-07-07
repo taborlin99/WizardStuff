@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://343lu6typy6h"]
 
 [ext_resource type="Script" path="res://items/spells/scene/spellscene.gd" id="1_2dxst"]
-[ext_resource type="Texture2D" uid="uid://d4fl4meuidpmu" path="res://icon.svg" id="2_oa2xc"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_oa2xc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a068t"]
 

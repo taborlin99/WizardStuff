@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=3 format=3 uid="uid://ce43sb3cawgdn"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=6 format=3 uid="uid://ce43sb3cawgdn"]
 
+[ext_resource type="Resource" uid="uid://bf3shxtfxr2g6" path="res://items/spells/blast/blast.tres" id="1_74eys"]
 [ext_resource type="Script" path="res://inventory/class_data/inventory_data.gd" id="1_m5vf5"]
 [ext_resource type="Resource" uid="uid://dnul56tpav2ii" path="res://items/util/empty.tres" id="1_o3fht"]
+[ext_resource type="Resource" uid="uid://cpkey5l3knh80" path="res://items/spells/bolt/bolt.tres" id="2_0kf0b"]
+[ext_resource type="Resource" uid="uid://dk0rqgaxjam17" path="res://items/spells/slash/slash.tres" id="3_dvd7p"]
 
 [resource]
 script = ExtResource("1_m5vf5")
-item_datas = Array[Resource("res://items/class_data/item_data.gd")]([ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht")])
+item_datas = Array[Resource("res://items/class_data/item_data.gd")]([ExtResource("1_74eys"), ExtResource("1_74eys"), ExtResource("1_74eys"), ExtResource("1_74eys"), ExtResource("2_0kf0b"), ExtResource("2_0kf0b"), ExtResource("2_0kf0b"), ExtResource("2_0kf0b"), ExtResource("3_dvd7p"), ExtResource("3_dvd7p"), ExtResource("3_dvd7p"), ExtResource("3_dvd7p"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht")])

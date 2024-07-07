@@ -14,7 +14,7 @@ var direction : Vector2
 
 @export_group("spawning")
 @export var spawn_count : int = 1
-@export var spawn_spread : float = 0
+@export_range(0, 360, 1) var spawn_spread : int = 0
 
 @export_group("properties") 							#TODO
 @export var homing : bool = false

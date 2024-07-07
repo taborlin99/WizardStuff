@@ -5,9 +5,12 @@ extends Control
 
 @onready var player = $"../../Player"				#TODO constant
 @onready var grabbed_item = $GrabbedItem
+
 const EMPTY = preload("res://items/util/empty.tres")
 
 var grabbed_item_data: ItemData
+
+#####################  Manage child Inventories, and "grabbed item" ###################
 
 func _ready():
 	player.toggle_inventory.connect(toggle_inventory)
@@ -16,7 +19,7 @@ func _ready():
 	grabbed_item_data = EMPTY
 
 func toggle_inventory():
-	self.visible = not self.visible
+	self.visible = not self.visible									#possibly doesnt have to go through player
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
 	if inventory_data.item_datas[index].locked == false:

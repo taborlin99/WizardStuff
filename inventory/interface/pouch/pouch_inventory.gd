@@ -8,6 +8,8 @@ func _ready():
 	populate_item_grid(inventory_data)
 	inventory_data.inventory_updated.connect(populate_item_grid)
 
+#	fills item grid based on array of ItemData
+
 func populate_item_grid(inventory_data):
 	for child in item_grid.get_children():
 		child.queue_free()
