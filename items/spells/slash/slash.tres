@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3 uid="uid://dk0rqgaxjam17"]
+
+[ext_resource type="Script" path="res://items/class_data/spell_data.gd" id="1_gs74s"]
+[ext_resource type="PackedScene" uid="uid://343lu6typy6h" path="res://items/spells/scene/spellscene.tscn" id="1_oimgu"]
+[ext_resource type="Texture2D" uid="uid://d4fl4meuidpmu" path="res://icon.svg" id="2_847yb"]
+
+[resource]
+script = ExtResource("1_gs74s")
+mana_cost = 10
+max_speed = 0.0
+initial_speed = 0.0
+acceleration = 0.0
+lifetime = 0.1
+damage = 10
+size = 1.0
+scene = ExtResource("1_oimgu")
+spawn_count = 3
+spawn_spread = 1.571
+homing = false
+peircing = false
+tracking = false
+orbiting = false
+name = "slash"
+description = "a quick slash"
+texture = ExtResource("2_847yb")
+empty = false
+locked = false

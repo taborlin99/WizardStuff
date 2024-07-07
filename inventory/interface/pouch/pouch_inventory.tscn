@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://oyynyna52knd"]
+
+[ext_resource type="Script" path="res://inventory/interface/pouch/pouch_inventory.gd" id="1_q6dav"]
+
+[node name="PouchInventory" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_q6dav")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 4

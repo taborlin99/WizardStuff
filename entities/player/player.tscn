@@ -1,35 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhyjmkxouxn5l"]
+[gd_scene load_steps=5 format=3 uid="uid://dpkclr6j73on6"]
 
-[ext_resource type="Script" path="res://entities/player/Player.gd" id="1_76acu"]
-[ext_resource type="Resource" uid="uid://cg4qoyv027d8e" path="res://items/item_data/locked_slot.tres" id="2_senta"]
-[ext_resource type="Resource" uid="uid://brhe5c178fl6i" path="res://items/item_data/empty.tres" id="3_2h8rn"]
-[ext_resource type="Resource" uid="uid://b371giwxuuaep" path="res://items/spells/projectiles/bolt/bolt.tres" id="4_rqdcu"]
-[ext_resource type="Resource" uid="uid://dhgg3i5clud1u" path="res://items/spells/projectiles/bomb/bomb.tres" id="5_4xbw1"]
-[ext_resource type="Script" path="res://items/wands/wand_data/wand_data.gd" id="5_thsio"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_nvgt2"]
+[ext_resource type="Resource" uid="uid://cy1k8be61n63w" path="res://inventory/interface/wands/wand.tres" id="2_21kwv"]
+[ext_resource type="Texture2D" uid="uid://d4fl4meuidpmu" path="res://icon.svg" id="3_ubgy6"]
 
-[sub_resource type="Resource" id="Resource_275us"]
-script = ExtResource("5_thsio")
-item_datas = Array[Resource("res://items/item_data/item_data.gd")]([ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("5_4xbw1"), ExtResource("4_rqdcu"), ExtResource("3_2h8rn"), ExtResource("3_2h8rn"), ExtResource("3_2h8rn"), ExtResource("3_2h8rn"), ExtResource("3_2h8rn"), ExtResource("5_4xbw1"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta"), ExtResource("2_senta")])
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gxkur"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tyolp"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_76acu")
-player_wand = SubResource("Resource_275us")
+script = ExtResource("1_nvgt2")
+player_wand = ExtResource("2_21kwv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_gxkur")
+shape = SubResource("CircleShape2D_tyolp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -39.0
-offset_right = 6.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ubgy6")

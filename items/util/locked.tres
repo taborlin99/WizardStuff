@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://b1whurcfevpd4"]
+
+[ext_resource type="Script" path="res://items/class_data/item_data.gd" id="1_v2dwm"]
+
+[resource]
+script = ExtResource("1_v2dwm")
+name = "locked"
+description = "this slot is locked"
+empty = false
+locked = true

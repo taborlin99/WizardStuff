@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://8v7lmqhwhbhw"]
+
+[ext_resource type="PackedScene" uid="uid://dpkclr6j73on6" path="res://entities/player.tscn" id="1_guixg"]
+[ext_resource type="Script" path="res://inventory/interface/inventory_interface.gd" id="3_g6qur"]
+[ext_resource type="Script" path="res://entities/player/wand_actor.gd" id="3_gwomh"]
+[ext_resource type="PackedScene" uid="uid://blnr8bmhygm5l" path="res://inventory/data/inventory.tscn" id="4_31xfd"]
+[ext_resource type="PackedScene" uid="uid://oyynyna52knd" path="res://inventory/interface/pouch/pouch_inventory.tscn" id="5_15wkl"]
+[ext_resource type="PackedScene" uid="uid://b6rrpqmkb6qnu" path="res://inventory/interface/slot/slot.tscn" id="6_dp0r3"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_guixg")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="WandActor" type="Node2D" parent="."]
+script = ExtResource("3_gwomh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_g6qur")
+
+[node name="WandInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("4_31xfd")]
+layout_mode = 0
+
+[node name="PouchInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("5_15wkl")]
+layout_mode = 1
+offset_right = 2.0
+
+[node name="GrabbedItem" parent="CanvasLayer/InventoryInterface" instance=ExtResource("6_dp0r3")]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
