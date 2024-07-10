@@ -1,14 +1,15 @@
 extends CharacterBody2D
 class_name SpellScene
 
+var active : bool = false
 var data : SpellData
 var direction : Vector2 = Vector2.ZERO
 var spell_chain : Array[SpellData]
 var index : int
+
 @export var scene : PackedScene
 
 func _ready():
-	print(index)
 	start_lifetime_timer(data.lifetime)
 	on_spell_cast()
 
@@ -25,7 +26,9 @@ func on_spell_hit():
 	pass
 
 func on_spell_end():
-	queue_free()
+	if data.spawn_on_end == true:
+		cast_spell_chain_arc()
+	
 
 func cast_spell_chain_arc():
 	cast_arc(spell_chain, index, direction, data.spawn_count, data.spawn_spread)

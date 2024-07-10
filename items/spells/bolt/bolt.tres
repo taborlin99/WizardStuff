@@ -6,11 +6,9 @@
 
 [resource]
 script = ExtResource("1_2w40j")
-max_speed = 100.0
+max_speed = 500.0
 initial_speed = 1000.0
-acceleration = 25.0
-poll = "Check this box if godot should add conditional exporting"
-I_AGREE = true
+acceleration = 100.0
 homing = false
 homing_strength = 0.0
 piercing = false
@@ -20,17 +18,17 @@ bounces = 0
 orbiting = false
 orbit_speed = 0.0
 orbit_distance = 0.0
-mouse_tracking = false
-tracking_strength = 0.0
+mouse_tracking = true
+tracking_strength = 0.03
 mana_cost = 10
 size = 1.0
 scene = ExtResource("1_r7qtj")
 damage = 10
-lifetime = 0.4
+lifetime = 1.0
 spawn_on_end = true
-spawn_count = 3
-spawn_spread = 180
-_spawn_persistent = true
+spawn_count = 1
+spawn_spread = 0
+_spawn_persistent = false
 spawn_rate = 0.3
 name = "bolt"
 description = "magical bolt"

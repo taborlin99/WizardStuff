@@ -1,21 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://xu3viy5lvgms"]
+[gd_scene load_steps=5 format=3 uid="uid://xu3viy5lvgms"]
 
 [sub_resource type="GDScript" id="GDScript_u2o5p"]
 script/source = "extends SpellScene
 
 func _ready():
-	initiate_spell()
-
-func _process(delta):
-	pass
+	super()
+	
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_clerl"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mthq2"]
+particle_flag_disable_z = true
+emission_shape = 4
+emission_point_count = 3
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_sl051"]
+offsets = PackedFloat32Array(0, 0.393939, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.121569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w2b2y"]
+gradient = SubResource("Gradient_sl051")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.2, 0.2)
 
 [node name="Slash" type="CharacterBody2D"]
 script = SubResource("GDScript_u2o5p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_clerl")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_mthq2")
+texture = SubResource("GradientTexture2D_w2b2y")

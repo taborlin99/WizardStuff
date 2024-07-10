@@ -7,8 +7,6 @@ class_name ProjectileData
 @export var acceleration: float
 
 @export_group("projectile properies")
-@export_multiline var poll = "Check this box if godot should add conditional exporting"
-@export var I_AGREE : bool = false
 @export_group("homing")
 @export var homing : bool = false
 @export var homing_strength : float

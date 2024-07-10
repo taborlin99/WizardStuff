@@ -5,7 +5,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_q085h"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixc4d"]
-lifetime_randomness = 0.74
 particle_flag_disable_z = true
 spread = 180.0
 initial_velocity_min = 7.52
@@ -30,7 +29,7 @@ script = ExtResource("1_lbsli")
 shape = SubResource("CircleShape2D_q085h")
 
 [node name="bolt" type="GPUParticles2D" parent="."]
-amount = 32
+amount = 4
 process_material = SubResource("ParticleProcessMaterial_ixc4d")
 texture = SubResource("GradientTexture2D_grvio")
 lifetime = 0.2
@@ -40,5 +39,5 @@ local_coords = true
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_ixc4d")
 texture = SubResource("GradientTexture2D_grvio")
-lifetime = 0.4
+lifetime = 0.5
 fixed_fps = 60
