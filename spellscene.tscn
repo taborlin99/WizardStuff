@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://343lu6typy6h"]
+[gd_scene load_steps=4 format=3 uid="uid://bpme40ac5ot00"]
 
-[ext_resource type="Script" path="res://items/spells/scene/spellscene.gd" id="1_2dxst"]
-[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_oa2xc"]
+[ext_resource type="Script" path="res://items/class_data/spellscene.gd" id="1_7kmsd"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_7xpci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a068t"]
 
 [node name="Spell" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_2dxst")
+script = ExtResource("1_7kmsd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a068t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.296875, 0.296875)
-texture = ExtResource("2_oa2xc")
+texture = ExtResource("2_7xpci")

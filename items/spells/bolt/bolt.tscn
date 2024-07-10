@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwiohtfs2jmti"]
+
+[ext_resource type="Script" path="res://items/spells/bolt/bolt.gd" id="1_lbsli"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q085h"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixc4d"]
+lifetime_randomness = 0.74
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 7.52
+initial_velocity_max = 60.15
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_nqsc0"]
+offsets = PackedFloat32Array(0, 0.229437, 0.467532)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0352941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grvio"]
+gradient = SubResource("Gradient_nqsc0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Bolt" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lbsli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q085h")
+
+[node name="bolt" type="GPUParticles2D" parent="."]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ixc4d")
+texture = SubResource("GradientTexture2D_grvio")
+lifetime = 0.2
+local_coords = true
+
+[node name="boltTrail" type="GPUParticles2D" parent="."]
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_ixc4d")
+texture = SubResource("GradientTexture2D_grvio")
+lifetime = 0.4
+fixed_fps = 60

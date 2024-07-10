@@ -1,27 +1,39 @@
-[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3 uid="uid://cpkey5l3knh80"]
+[gd_resource type="Resource" script_class="ProjectileData" load_steps=4 format=3 uid="uid://b6foam82lbpe8"]
 
-[ext_resource type="Script" path="res://items/class_data/spell_data.gd" id="1_kdewq"]
-[ext_resource type="PackedScene" uid="uid://343lu6typy6h" path="res://items/spells/scene/spellscene.tscn" id="1_ll04m"]
-[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="3_8eke2"]
+[ext_resource type="Script" path="res://items/class_data/projectile_data.gd" id="1_2w40j"]
+[ext_resource type="PackedScene" uid="uid://bwiohtfs2jmti" path="res://items/spells/bolt/bolt.tscn" id="1_r7qtj"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_fixmj"]
 
 [resource]
-script = ExtResource("1_kdewq")
-mana_cost = 10
-max_speed = 200.0
-initial_speed = 200.0
-acceleration = 0.0
-lifetime = 0.5
-damage = 3
-size = 1.0
-scene = ExtResource("1_ll04m")
-spawn_count = 1
-spawn_spread = 0
+script = ExtResource("1_2w40j")
+max_speed = 100.0
+initial_speed = 1000.0
+acceleration = 25.0
+poll = "Check this box if godot should add conditional exporting"
+I_AGREE = true
 homing = false
-peircing = false
-tracking = false
+homing_strength = 0.0
+piercing = false
+piercing_number = 0
+bouncing = false
+bounces = 0
 orbiting = false
+orbit_speed = 0.0
+orbit_distance = 0.0
+mouse_tracking = false
+tracking_strength = 0.0
+mana_cost = 10
+size = 1.0
+scene = ExtResource("1_r7qtj")
+damage = 10
+lifetime = 0.4
+spawn_on_end = true
+spawn_count = 3
+spawn_spread = 180
+_spawn_persistent = true
+spawn_rate = 0.3
 name = "bolt"
-description = "classic bolt"
-texture = ExtResource("3_8eke2")
+description = "magical bolt"
+texture = ExtResource("2_fixmj")
 empty = false
 locked = false

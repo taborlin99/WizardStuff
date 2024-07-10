@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://crvfpmp8rcin5"]
+[gd_scene load_steps=3 format=3 uid="uid://xu3viy5lvgms"]
 
-[ext_resource type="Script" path="res://items/spells/slash/slash.gd" id="1_hjx3l"]
+[sub_resource type="GDScript" id="GDScript_u2o5p"]
+script/source = "extends SpellScene
+
+func _ready():
+	initiate_spell()
+
+func _process(delta):
+	pass
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clerl"]
 
 [node name="Slash" type="CharacterBody2D"]
-script = ExtResource("1_hjx3l")
+script = SubResource("GDScript_u2o5p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

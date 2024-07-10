@@ -2,22 +2,16 @@ extends ItemData
 class_name SpellData
 
 @export var mana_cost : int
-
-@export var max_speed: float
-@export var initial_speed: float
-@export var acceleration: float
-@export var lifetime: float
-@export var damage: int
 @export var size: float
 @export var scene : PackedScene
+@export var damage : int
+@export_range(0, 10, 0.1) var lifetime : float
 var direction : Vector2
 
-@export_group("spawning")
+@export_group("spawn on end")
+@export var spawn_on_end : bool = true
 @export var spawn_count : int = 1
 @export_range(0, 360, 1) var spawn_spread : int = 0
-
-@export_group("properties") 							#TODO
-@export var homing : bool = false
-@export var peircing : bool = false
-@export var tracking : bool = false
-@export var orbiting : bool = false
+@export_group("spawn persistent")
+@export var _spawn_persistent : bool = false
+@export var spawn_rate : float
