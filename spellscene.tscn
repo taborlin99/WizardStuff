@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpme40ac5ot00"]
+[gd_scene load_steps=4 format=3 uid="uid://cptwvdp0bi8u1"]
 
-[ext_resource type="Script" path="res://items/class_data/spellscene.gd" id="1_7kmsd"]
+[ext_resource type="Script" path="res://items/class_data/scenes/projectile_scene.gd" id="1_7kmsd"]
 [ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_7xpci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a068t"]

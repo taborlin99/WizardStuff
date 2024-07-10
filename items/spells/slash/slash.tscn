@@ -1,12 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://xu3viy5lvgms"]
 
 [sub_resource type="GDScript" id="GDScript_u2o5p"]
-script/source = "extends SpellScene
-
-func _ready():
-	super()
-	
-"
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mthq2"]
 particle_flag_disable_z = true
@@ -27,7 +21,12 @@ fill_to = Vector2(0.2, 0.2)
 [node name="Slash" type="CharacterBody2D"]
 script = SubResource("GDScript_u2o5p")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -48, 50, -18, 50, 19, 0, 55)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Polygon2D"]
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_mthq2")
 texture = SubResource("GradientTexture2D_w2b2y")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

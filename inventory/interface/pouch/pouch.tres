@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=4 format=3 uid="uid://ce43sb3cawgdn"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=3 format=3 uid="uid://ce43sb3cawgdn"]
 
 [ext_resource type="Script" path="res://inventory/class_data/inventory_data.gd" id="1_m5vf5"]
 [ext_resource type="Resource" uid="uid://dnul56tpav2ii" path="res://items/util/empty.tres" id="1_o3fht"]
-[ext_resource type="Resource" uid="uid://b6foam82lbpe8" path="res://items/spells/bolt/bolt.tres" id="1_yug15"]
 
 [resource]
 script = ExtResource("1_m5vf5")
-item_datas = Array[Resource("res://items/class_data/item_data.gd")]([ExtResource("1_yug15"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht")])
+item_datas = Array[Resource("res://items/class_data/items/item_data.gd")]([ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht"), ExtResource("1_o3fht")])

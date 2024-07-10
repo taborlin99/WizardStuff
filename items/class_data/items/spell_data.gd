@@ -13,5 +13,5 @@ var direction : Vector2
 @export var spawn_count : int = 1
 @export_range(0, 360, 1) var spawn_spread : int = 0
 @export_group("spawn persistent")
-@export var _spawn_persistent : bool = false
+@export var spawn_persistent : bool = false
 @export var spawn_rate : float

@@ -6,4 +6,4 @@
 
 [resource]
 script = ExtResource("2_etwtm")
-item_datas = Array[Resource("res://items/class_data/item_data.gd")]([ExtResource("1_ooqo2"), ExtResource("1_ooqo2"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34")])
+item_datas = Array[Resource("res://items/class_data/items/item_data.gd")]([ExtResource("1_ooqo2"), ExtResource("1_ooqo2"), ExtResource("1_ooqo2"), ExtResource("1_ooqo2"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34")])

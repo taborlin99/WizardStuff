@@ -1,21 +1,27 @@
 extends CharacterBody2D
-class_name SpellScene
+class_name ProjectileScene
 
 var active : bool = false
 var data : SpellData
 var direction : Vector2 = Vector2.ZERO
 var spell_chain : Array[SpellData]
 var index : int
+@onready var spawn_timer = data.spawn_rate
 
 @export var scene : PackedScene
 
 func _ready():
+	active = true
 	start_lifetime_timer(data.lifetime)
 	on_spell_cast()
 
 func start_lifetime_timer(lifetime):
 	await get_tree().create_timer(lifetime).timeout
 	on_spell_end()
+
+func _physics_process(delta):
+	if data.spawn_persistent == true:
+			spawn_persistent(delta)
 
 func on_spell_cast():
 	#spot for on cast effects (kinda obvious huh)
@@ -26,6 +32,7 @@ func on_spell_hit():
 	pass
 
 func on_spell_end():
+	active = false
 	if data.spawn_on_end == true:
 		cast_spell_chain_arc()
 	
@@ -37,7 +44,7 @@ func cast_arc(spell_chain, index, direction, spawn_count, spawn_spread):
 	if index < spell_chain.size():
 		var data = spell_chain[index]
 		var spawn_arc = deg_to_rad(spawn_spread)
-		var angle_increment = spawn_arc / (spawn_count -1.0001)
+		var angle_increment = spawn_arc / (spawn_count - 1.001)
 		var initial_angle = -spawn_arc / 2
 		for i in range(spawn_count):
 			var angle = initial_angle + (i * angle_increment)
@@ -51,4 +58,9 @@ func cast_arc(spell_chain, index, direction, spawn_count, spawn_spread):
 	else:
 		return
 
-#TODO add functions to make instantiation of hurtboxes easier
+func spawn_persistent(delta):
+	if active == true:
+		spawn_timer -= delta
+		if spawn_timer <= 0:
+			spawn_timer = data.spawn_rate
+			cast_spell_chain_arc()

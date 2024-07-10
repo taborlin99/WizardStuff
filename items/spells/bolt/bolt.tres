@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ProjectileData" load_steps=4 format=3 uid="uid://b6foam82lbpe8"]
 
-[ext_resource type="Script" path="res://items/class_data/projectile_data.gd" id="1_2w40j"]
 [ext_resource type="PackedScene" uid="uid://bwiohtfs2jmti" path="res://items/spells/bolt/bolt.tscn" id="1_r7qtj"]
+[ext_resource type="Script" path="res://items/class_data/items/projectile_data.gd" id="2_8hqex"]
 [ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="2_fixmj"]
 
 [resource]
-script = ExtResource("1_2w40j")
+script = ExtResource("2_8hqex")
 max_speed = 500.0
 initial_speed = 1000.0
 acceleration = 100.0
@@ -18,17 +18,17 @@ bounces = 0
 orbiting = false
 orbit_speed = 0.0
 orbit_distance = 0.0
-mouse_tracking = true
+mouse_tracking = false
 tracking_strength = 0.03
 mana_cost = 10
 size = 1.0
 scene = ExtResource("1_r7qtj")
 damage = 10
-lifetime = 1.0
+lifetime = 0.5
 spawn_on_end = true
-spawn_count = 1
-spawn_spread = 0
-_spawn_persistent = false
+spawn_count = 2
+spawn_spread = 180
+spawn_persistent = false
 spawn_rate = 0.3
 name = "bolt"
 description = "magical bolt"
