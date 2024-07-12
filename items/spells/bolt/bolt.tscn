@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwiohtfs2jmti"]
+[gd_scene load_steps=11 format=3 uid="uid://bwiohtfs2jmti"]
 
 [ext_resource type="Script" path="res://items/spells/bolt/bolt.gd" id="1_lbsli"]
 
@@ -7,18 +7,47 @@
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixc4d"]
 particle_flag_disable_z = true
 spread = 180.0
-initial_velocity_min = 7.52
-initial_velocity_max = 60.15
+initial_velocity_max = 22.56
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_nqsc0"]
-offsets = PackedFloat32Array(0, 0.229437, 0.467532)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0352941, 1, 1, 1, 0)
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.168831, 0.558442)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.027451, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_grvio"]
 gradient = SubResource("Gradient_nqsc0")
+width = 128
+height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_vaast"]
+_data = [Vector2(0.0269058, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wetf0"]
+curve = SubResource("Curve_vaast")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bseda"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_wetf0")
+
+[sub_resource type="Gradient" id="Gradient_u3f7p"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.675325)
+colors = PackedColorArray(1, 1, 1, 0.454902, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i2v52"]
+gradient = SubResource("Gradient_u3f7p")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [node name="Bolt" type="CharacterBody2D"]
 collision_layer = 0
@@ -28,16 +57,15 @@ script = ExtResource("1_lbsli")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q085h")
 
-[node name="bolt" type="GPUParticles2D" parent="."]
-amount = 4
-process_material = SubResource("ParticleProcessMaterial_ixc4d")
-texture = SubResource("GradientTexture2D_grvio")
-lifetime = 0.2
-local_coords = true
-
-[node name="boltTrail" type="GPUParticles2D" parent="."]
-amount = 64
+[node name="BoltParticles" type="GPUParticles2D" parent="."]
+amount = 2
 process_material = SubResource("ParticleProcessMaterial_ixc4d")
 texture = SubResource("GradientTexture2D_grvio")
 lifetime = 0.5
-fixed_fps = 60
+local_coords = true
+
+[node name="BoltTrail" type="GPUParticles2D" parent="."]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_bseda")
+texture = SubResource("GradientTexture2D_i2v52")
+lifetime = 0.5

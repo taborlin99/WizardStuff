@@ -10,12 +10,12 @@ func _ready():
 
 #	fills item grid based on array of ItemData
 
-func populate_item_grid(inventory_data):
+func populate_item_grid(_inventory_data):
 	for child in item_grid.get_children():
 		child.queue_free()
 		
-	for item_data in inventory_data.item_datas:
+	for item_data in _inventory_data.item_datas:
 		var slot = Slot.instantiate()
 		item_grid.add_child(slot)
-		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
+		slot.slot_clicked.connect(_inventory_data.on_slot_clicked)
 		slot.set_item_data(item_data)

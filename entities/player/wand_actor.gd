@@ -20,4 +20,5 @@ func on_cast_spell_chain(index : int, location : Vector2, direction: Vector2):
 		new_spell.direction = direction.normalized()
 		new_spell.spell_chain = spell_chain
 		new_spell.index = index + 1
+		new_spell.global_position = location
 		get_tree().root.add_child(new_spell)

@@ -19,10 +19,10 @@ func _ready():
 	grabbed_item_data = EMPTY
 
 func toggle_inventory():
-	self.visible = not self.visible									#possibly doesnt have to go through player
+	self.visible = not self.visible
 
-func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
-	if inventory_data.item_datas[index].locked == false:
+func on_inventory_interact(inventory_data: InventoryData, index: int, _button: int): # TODO add right click su
+	if inventory_data.item_datas[index].locked == false:								#UI
 		grabbed_item_data = inventory_data.swap_item_data(grabbed_item_data, index)
 		update_grabbed_item()
 	else:
@@ -35,6 +35,6 @@ func update_grabbed_item() -> void:
 	if grabbed_item_data.empty == false:
 		grabbed_item.show()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if grabbed_item:
 		grabbed_item.global_position = get_global_mouse_position() + Vector2(5,5)

@@ -5,11 +5,6 @@ signal slot_clicked(index: int, button: int)
 @onready var color_rect = $MarginContainer/ColorRect
 @onready var texture_rect = $MarginContainer/TextureRect
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
 
 func set_item_data(item_data: ItemData):
 	if item_data.empty == true:

@@ -1,20 +1,24 @@
-[gd_resource type="Resource" script_class="MeleeData" load_steps=2 format=3 uid="uid://b0p1kvx7kssio"]
+[gd_resource type="Resource" script_class="MeleeData" load_steps=4 format=3 uid="uid://b0p1kvx7kssio"]
 
+[ext_resource type="PackedScene" uid="uid://xu3viy5lvgms" path="res://items/spells/slash/slash.tscn" id="1_64wom"]
 [ext_resource type="Script" path="res://items/class_data/items/melee_data.gd" id="1_xf13s"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="3_suycp"]
 
 [resource]
 script = ExtResource("1_xf13s")
-range = 0.0
-mana_cost = 0
-size = 0.0
-damage = 0
-lifetime = 0.0
+range = 2.0
+mana_cost = 2
+size = 2.0
+scene = ExtResource("1_64wom")
+damage = 10
+lifetime = 2.0
 spawn_on_end = true
-spawn_count = 1
-spawn_spread = 0
-_spawn_persistent = false
-spawn_rate = 0.0
-name = ""
-description = ""
+spawn_count = 4
+spawn_spread = 45
+spawn_persistent = false
+spawn_rate = 0.1
+name = "slash"
+description = "slash of arcane energy"
+texture = ExtResource("3_suycp")
 empty = false
 locked = false

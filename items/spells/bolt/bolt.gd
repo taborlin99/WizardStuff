@@ -1,7 +1,7 @@
-extends ProjectileScene
+extends SpellScene
 
-@onready var bolt = $bolt
-@onready var bolt_trail = $boltTrail
+@onready var bolt = $BoltParticles
+@onready var bolt_trail = $BoltTrail
 var desired_speed : float = 0
 var desired_direction : Vector2 = Vector2.ZERO
 var homing_direction : Vector2 = Vector2.ZERO
@@ -21,10 +21,10 @@ func handle_movement(delta):
 	if data.homing == true:
 		pass
 		#find homing direction but no targets yet. using area body2D
-		
+
 	if data.mouse_tracking == true:
 		tracking_direction = (get_global_mouse_position() - global_position).normalized()
-		
+
 	desired_speed = move_toward(desired_speed, data.max_speed, data.acceleration * delta)
 	if data.mouse_tracking == true:
 		desired_direction = desired_direction.move_toward(tracking_direction, data.tracking_strength)
@@ -33,7 +33,7 @@ func handle_movement(delta):
 	direction = desired_direction
 	velocity = desired_direction * desired_speed
 	move_and_slide()
-	
+
 func on_spell_end():
 	super()
 	bolt.emitting = false

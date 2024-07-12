@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpkclr6j73on6"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_nvgt2"]
-[ext_resource type="Resource" uid="uid://cy1k8be61n63w" path="res://inventory/interface/wands/wand.tres" id="2_21kwv"]
-[ext_resource type="Texture2D" uid="uid://d4fl4meuidpmu" path="res://icon.svg" id="3_ubgy6"]
+[ext_resource type="Resource" uid="uid://bvksy28gpdknp" path="res://inventory/interface/wands/wand.tres" id="2_21kwv"]
+[ext_resource type="Texture2D" uid="uid://cucddtunaq7bw" path="res://icon.svg" id="3_ubgy6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyolp"]
 
