@@ -6,12 +6,13 @@
 
 [resource]
 script = ExtResource("1_xf13s")
-range = 2.0
+spell_range = 100.0
+spell_area = 180.0
 mana_cost = 2
 size = 2.0
 scene = ExtResource("1_64wom")
 damage = 10
-lifetime = 2.0
+lifetime = 0.5
 spawn_on_end = true
 spawn_count = 4
 spawn_spread = 45

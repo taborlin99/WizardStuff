@@ -1,7 +1,8 @@
 extends SpellData
 class_name MeleeData
 
-@export var range : float
+@export var spell_range : float
+@export var spell_area : float
 
 #big TODO angle, but I think this class will be fairly sparse
 
