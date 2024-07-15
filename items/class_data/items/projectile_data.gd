@@ -1,6 +1,8 @@
 extends SpellData
 class_name ProjectileData
-	
+
+var spell_range : float = 0
+
 @export_group("movement")
 @export var max_speed: float
 @export var initial_speed: float

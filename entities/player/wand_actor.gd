@@ -17,7 +17,7 @@ func on_cast_spell_chain(index : int, location : Vector2, direction: Vector2):
 		var data = spell_chain[index]
 		var new_spell = data.scene.instantiate()
 		new_spell.data = data
-		new_spell.direction = direction.normalized()
+		new_spell.initial_direction = direction.normalized()
 		new_spell.spell_chain = spell_chain
 		new_spell.index = index + 1
 		new_spell.global_position = location

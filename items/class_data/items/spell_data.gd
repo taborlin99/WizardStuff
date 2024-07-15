@@ -8,6 +8,7 @@ class_name SpellData
 @export_range(0, 10, 0.1) var lifetime : float
 var direction : Vector2
 
+#@export_range(1, 100) var spawn_range : float
 @export_group("spawn on end")
 @export var spawn_on_end : bool = true
 @export var spawn_count : int = 1

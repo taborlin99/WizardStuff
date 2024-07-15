@@ -1,10 +1,9 @@
-extends SpellScene
+extends ProjectileScene
 
 @onready var bolt = $BoltParticles
 @onready var bolt_trail = $BoltTrail
 
 func _ready():
-	print(data.direction)
 	super()
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-extends SpellScene
+extends ProjectileScene
 @onready var particles = $Anchor/GPUParticles2D
 @onready var anchor = $Anchor
 @onready var time : float = 0

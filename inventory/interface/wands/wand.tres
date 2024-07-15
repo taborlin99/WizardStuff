@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="WandData" load_steps=4 format=3 uid="uid://bvksy28gpdknp"]
+[gd_resource type="Resource" script_class="WandData" load_steps=5 format=3 uid="uid://bvksy28gpdknp"]
 
 [ext_resource type="Resource" uid="uid://b6foam82lbpe8" path="res://items/spells/bolt/bolt.tres" id="1_bew31"]
 [ext_resource type="Script" path="res://inventory/class_data/wand_data.gd" id="2_etwtm"]
+[ext_resource type="Resource" uid="uid://17h2phmletrh" path="res://items/spells/burst/burst.tres" id="2_qrgu7"]
 [ext_resource type="Resource" uid="uid://dnul56tpav2ii" path="res://items/util/empty.tres" id="3_ign34"]
 
 [resource]
 script = ExtResource("2_etwtm")
-item_datas = Array[Resource("res://items/class_data/items/item_data.gd")]([ExtResource("1_bew31"), ExtResource("1_bew31"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34")])
+item_datas = Array[Resource("res://items/class_data/items/item_data.gd")]([ExtResource("1_bew31"), ExtResource("1_bew31"), ExtResource("2_qrgu7"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34"), ExtResource("3_ign34")])
