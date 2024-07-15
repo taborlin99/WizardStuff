@@ -19,7 +19,7 @@ func swing_animation(delta):
 		angle += rotation_increment * delta
 		time += delta
 	var _rotation = deg_to_rad(angle - (arc_length/2))
-	var p_dir = Vector2.RIGHT.rotated(_rotation)
+	var p_dir = direction.rotated(_rotation)
 	particles.process_material.direction = Vector3(p_dir.x, p_dir.y, 0)
 	anchor.rotation = _rotation
 
